@@ -39,7 +39,7 @@ const App = () => {
     const handleWheel = (e) => {
       if (e.ctrlKey) {
         e.preventDefault();
-        const zoomSpeed = 0.01;
+        const zoomSpeed = 0.02;
         const delta = -e.deltaY * zoomSpeed;
         setPosition(pos => ({
           ...pos,
