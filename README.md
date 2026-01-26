@@ -1,16 +1,66 @@
-# React + Vite
+# World Food Map 🍴🌍
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive web application built with React and Vite that allows users to explore famous traditional cuisines from around the globe. Simply click on a country to discover its most iconic dishes, complete with high-quality imagery and cultural descriptions.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interactive World Map**: Seamlessly zoom and pan across the globe using `react-simple-maps`.
+- **Global Cuisine Database**: Detailed information for 27+ countries, including:
+  - South Korea, Japan, Italy, USA, France, Spain, Germany, UK, Thailand, Vietnam, China, and many more.
+- **Verified Visuals**: High-quality, authentic food images sourced directly from verified Wikimedia Commons links.
+- **Responsive Design**: Optimized for both Desktop and Mobile (including iPhone notch/safe area support).
+- **Clean Architecture**: Modularized data and component-based structure for easy maintenance.
+- **Custom Branding**: Integrated custom logo and favicon support.
 
-## React Compiler
+## 🛠️ Technology Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: React 18, Vite
+- **Mapping**: react-simple-maps, d3-geo
+- **Icons**: Lucide React
+- **Styling**: Bootstrap 5, Custom CSS
+- **Deployment**: GitHub Pages
 
-## Expanding the ESLint configuration
+## 📦 Installation & Setup
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/PW486/world-food-map.git
+   cd world-food-map
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Run in development mode**
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
+
+## 📂 Project Structure
+
+```
+src/
+├── assets/             # Images and global assets (Logo)
+├── components/         # Reusable UI components (MapLayer, Sidebar, Header, etc.)
+├── data/               # Global data management
+│   └── countries/      # Modularized per-country cuisine data
+├── App.jsx             # Main application entry point
+└── main.jsx            # React mounting logic
+```
+
+## 🗺️ Contributing
+
+Interested in adding your country's cuisine? 
+1. Create a new data file in `src/data/countries/`.
+2. Add your country's top 10 dishes with Wikimedia image links.
+3. Register the new country in `src/data/foodData.js`.
+
+---
+Developed with ❤️ for food lovers everywhere.
