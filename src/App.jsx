@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import ZoomControls from "./components/ZoomControls";
 import Sidebar from "./components/Sidebar";
 import MapLayer from "./components/MapLayer";
+import { mapGeoName } from "./utils/countryMapping";
 import "./App.css";
 
 function useWindowSize() {
@@ -30,9 +31,10 @@ const App = () => {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [tooltipContent, setTooltipContent] = useState("");
   const { width, height } = useWindowSize();
+  const isMobile = window.innerWidth < 600;
   const [position, setPosition] = useState({ 
-    coordinates: [10, 10], 
-    zoom: window.innerWidth < 600 ? 3 : 2 
+    coordinates: isMobile ? [15, 35] : [20, 15], 
+    zoom: isMobile ? 4 : 2 
   });
 
   useEffect(() => {
@@ -97,16 +99,7 @@ const App = () => {
   const handleMoveEnd = (newPosition) => setPosition(newPosition);
 
   const handleCountryClick = (geo) => {
-    const { name } = geo.properties;
-    
-    // Map Data Name -> Our Data Key Mapping
-    const nameMap = {
-      "United States of America": "USA",
-      "Czech Republic": "Czechia",
-      // Add more mappings if needed
-    };
-
-    const countryName = nameMap[name] || name;
+    const countryName = mapGeoName(geo.properties.name);
 
     if (foodData[countryName]) setSelectedCountry(countryName);
     else setSelectedCountry(null);
@@ -130,7 +123,7 @@ const App = () => {
       <ZoomControls onZoomIn={handleZoomIn} onZoomOut={handleZoomOut} />
 
       {tooltipContent && (
-        <div className="position-absolute top-0 start-50 translate-middle-x mt-3 text-white px-3 py-1 rounded-pill shadow-sm opacity-90" style={{ zIndex: 20, backgroundColor: "#1e3a8a", pointerEvents: "none" }}>
+        <div className="position-absolute top-0 start-50 translate-middle-x mt-3 text-white px-3 py-1 rounded-pill shadow-sm opacity-90" style={{ zIndex: 20, backgroundColor: "#333333", pointerEvents: "none" }}>
             {tooltipContent}
         </div>
       )}

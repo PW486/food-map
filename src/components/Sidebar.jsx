@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { foodData } from "../data/foodData";
 import WikiFoodImage from "./WikiFoodImage";
+import { getCountryColor, getCountryCode } from "../utils/countryMapping";
 
 const Sidebar = ({ selectedCountry, setSelectedCountry, width }) => {
   const sidebarRef = useRef(null);
@@ -12,6 +13,9 @@ const Sidebar = ({ selectedCountry, setSelectedCountry, width }) => {
   }, [selectedCountry]);
 
   if (!selectedCountry) return null;
+
+  const countryColor = getCountryColor(selectedCountry);
+  const countryCode = getCountryCode(selectedCountry);
 
   return (
     <div 
@@ -27,8 +31,18 @@ const Sidebar = ({ selectedCountry, setSelectedCountry, width }) => {
         <div className="p-4 pt-0">
             <div className="sticky-top bg-white py-4 mb-4 shadow-sm" style={{ zIndex: 5, margin: "0 -1.5rem", padding: "1.5rem" }}>
                 <div className="d-flex align-items-center justify-content-between">
-                    <h2 className="h5 fw-bold m-0" style={{ color: "#1e3a8a" }}>
-                            <span style={{ color: "#3b82f6" }}>{selectedCountry}</span> Cuisine
+                    <h2 className="h5 fw-bold m-0 d-flex align-items-center" style={{ color: "#333333" }}>
+                            {countryCode && (
+                                <div className="d-flex align-items-center justify-content-center me-2" style={{ width: "24px", height: "18px" }}>
+                                    <img 
+                                        src={`https://flagcdn.com/w40/${countryCode}.png`} 
+                                        alt={`${selectedCountry} flag`}
+                                        className="d-block"
+                                        style={{ maxWidth: "100%", maxHeight: "100%", borderRadius: "1px", boxShadow: "0 1px 2px rgba(0,0,0,0.1)" }}
+                                    />
+                                </div>
+                            )}
+                            <span style={{ color: countryColor }}>{selectedCountry}</span>&nbsp;Cuisine
                     </h2>
                     <button onClick={() => setSelectedCountry(null)} className="btn btn-close"></button>
                 </div>
@@ -44,8 +58,8 @@ const Sidebar = ({ selectedCountry, setSelectedCountry, width }) => {
                             />
                         </div>
                         <div className="card-body">
-                            <h6 className="card-title fw-bold" style={{ color: "#1e3a8a" }}>{food.name}</h6>
-                            <p className="card-text text-muted small">{food.desc}</p>
+                            <h6 className="card-title fw-bold" style={{ color: "#333333" }}>{food.name}</h6>
+                            <p className="card-text small" style={{ color: "#555555" }}>{food.desc}</p>
                         </div>
                     </div>
                 ))}

@@ -34,6 +34,53 @@ import { china } from "./countries/china";
 import { indonesia } from "./countries/indonesia";
 import { malaysia } from "./countries/malaysia";
 import { taiwan } from "./countries/taiwan";
+import { iceland } from "./countries/iceland";
+import { luxembourg } from "./countries/luxembourg";
+import { slovenia } from "./countries/slovenia";
+import { croatia } from "./countries/croatia";
+import { uae } from "./countries/uae";
+import { singapore } from "./countries/singapore";
+import { hongkong } from "./countries/hongkong";
+import { mexico } from "./countries/mexico";
+import { brazil } from "./countries/brazil";
+import { argentina } from "./countries/argentina";
+import { peru } from "./countries/peru";
+import { india } from "./countries/india";
+import { egypt } from "./countries/egypt";
+import { morocco } from "./countries/morocco";
+import { russia } from "./countries/russia";
+import { southafrica } from "./countries/southafrica";
+import { philippines } from "./countries/philippines";
+import { pakistan } from "./countries/pakistan";
+import { saudiarabia } from "./countries/saudiarabia";
+import { israel } from "./countries/israel";
+import { iran } from "./countries/iran";
+import { colombia } from "./countries/colombia";
+import { chile } from "./countries/chile";
+import { nigeria } from "./countries/nigeria";
+import { ethiopia } from "./countries/ethiopia";
+import { ukraine } from "./countries/ukraine";
+import { romania } from "./countries/romania";
+import { mongolia } from "./countries/mongolia";
+import { nepal } from "./countries/nepal";
+import { kazakhstan } from "./countries/kazakhstan";
+import { lebanon } from "./countries/lebanon";
+import { cuba } from "./countries/cuba";
+import { jamaica } from "./countries/jamaica";
+import { kenya } from "./countries/kenya";
+import { uruguay } from "./countries/uruguay";
+import { algeria } from "./countries/algeria";
+import { ghana } from "./countries/ghana";
+import { srilanka } from "./countries/srilanka";
+import { bangladesh } from "./countries/bangladesh";
+import { bulgaria } from "./countries/bulgaria";
+import { serbia } from "./countries/serbia";
+import { venezuela } from "./countries/venezuela";
+import { ecuador } from "./countries/ecuador";
+import { jordan } from "./countries/jordan";
+import { tunisia } from "./countries/tunisia";
+import { senegal } from "./countries/senegal";
+import { tanzania } from "./countries/tanzania";
 
 export const foodData = {
   "South Korea": korea,
@@ -44,7 +91,7 @@ export const foodData = {
   "France": france,
   "Spain": spain,
   "Germany": germany,
-  "United Kingdom": uk,
+  "UK": uk,
   "Greece": greece,
   "Turkey": turkey,
   "Switzerland": switzerland,
@@ -72,4 +119,51 @@ export const foodData = {
   "Indonesia": indonesia,
   "Malaysia": malaysia,
   "Taiwan": taiwan,
+  "Iceland": iceland,
+  "Luxembourg": luxembourg,
+  "Slovenia": slovenia,
+  "Croatia": croatia,
+  "UAE": uae,
+  "Singapore": singapore,
+  "Hong Kong": hongkong,
+  "Mexico": mexico,
+  "Brazil": brazil,
+  "Argentina": argentina,
+  "Peru": peru,
+  "India": india,
+  "Egypt": egypt,
+  "Morocco": morocco,
+  "Russia": russia,
+  "South Africa": southafrica,
+  "Philippines": philippines,
+  "Pakistan": pakistan,
+  "Saudi Arabia": saudiarabia,
+  "Israel": israel,
+  "Iran": iran,
+  "Colombia": colombia,
+  "Chile": chile,
+  "Nigeria": nigeria,
+  "Ethiopia": ethiopia,
+  "Ukraine": ukraine,
+  "Romania": romania,
+  "Mongolia": mongolia,
+  "Nepal": nepal,
+  "Kazakhstan": kazakhstan,
+  "Lebanon": lebanon,
+  "Cuba": cuba,
+  "Jamaica": jamaica,
+  "Kenya": kenya,
+  "Uruguay": uruguay,
+  "Algeria": algeria,
+  "Ghana": ghana,
+  "Sri Lanka": srilanka,
+  "Bangladesh": bangladesh,
+  "Bulgaria": bulgaria,
+  "Serbia": serbia,
+  "Venezuela": venezuela,
+  "Ecuador": ecuador,
+  "Jordan": jordan,
+  "Tunisia": tunisia,
+  "Senegal": senegal,
+  "Tanzania": tanzania,
 };

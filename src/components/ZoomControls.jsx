@@ -13,7 +13,7 @@ const ZoomControls = ({ onZoomIn, onZoomOut }) => {
     >
       <button 
           className="btn btn-white bg-white shadow-lg rounded-circle d-flex align-items-center justify-content-center border-0" 
-          style={{ width: "44px", height: "44px", padding: 0, color: "#1e3a8a", transition: "transform 0.1s" }}
+          style={{ width: "44px", height: "44px", padding: 0, color: "#333333", transition: "transform 0.1s" }}
           onClick={onZoomIn} 
           onMouseDown={(e) => e.currentTarget.style.transform = "scale(0.95)"}
           onMouseUp={(e) => e.currentTarget.style.transform = "scale(1)"}
@@ -23,7 +23,7 @@ const ZoomControls = ({ onZoomIn, onZoomOut }) => {
       </button>
       <button 
           className="btn btn-white bg-white shadow-lg rounded-circle d-flex align-items-center justify-content-center border-0" 
-          style={{ width: "44px", height: "44px", padding: 0, color: "#1e3a8a", transition: "transform 0.1s" }}
+          style={{ width: "44px", height: "44px", padding: 0, color: "#333333", transition: "transform 0.1s" }}
           onClick={onZoomOut} 
           onMouseDown={(e) => e.currentTarget.style.transform = "scale(0.95)"}
           onMouseUp={(e) => e.currentTarget.style.transform = "scale(1)"}

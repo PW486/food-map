@@ -15,8 +15,8 @@ const Header = () => {
           <img src={logo} alt="World Food Map Logo" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
       <div>
-          <h1 className="h6 m-0 fw-bold" style={{ color: "#1e3a8a" }}>World Food Map</h1>
-          <p className="m-0 small text-secondary" style={{fontSize: '0.8rem'}}>Zoom & Click to explore</p>
+          <h1 className="h6 m-0 fw-bold" style={{ color: "#333333" }}>World Food Map</h1>
+          <p className="m-0 small" style={{fontSize: '0.8rem', color: "#666666" }}>Zoom & Click to explore</p>
       </div>
     </header>
   );

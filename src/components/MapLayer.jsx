@@ -1,6 +1,7 @@
 import React from "react";
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
 import { foodData } from "../data/foodData";
+import { getCountryColor, mapGeoName } from "../utils/countryMapping";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json";
 
@@ -33,53 +34,49 @@ const MapLayer = ({ width, height, position, handleMoveEnd, handleCountryClick, 
               {({ geographies }) => (
               <>
                   {geographies.map((geo) => {
-                      const isSelected = selectedCountry === geo.properties.name || (selectedCountry === 'USA' && geo.properties.name === "United States of America");
-                      const hasData = foodData[geo.properties.name] || (geo.properties.name === "United States of America" && foodData["USA"]);
+                      const geoName = mapGeoName(geo.properties.name);
+                      const isSelected = selectedCountry === geoName;
+                      const hasData = !!foodData[geoName];
+                      const countryColor = getCountryColor(geoName);
                       
                       return (
                       <Geography
-                          key={geo.rsmKey + "-fill"}
+                          key={geo.rsmKey}
                           geography={geo}
                           onMouseEnter={() => setTooltipContent(geo.properties.name)}
                           onMouseLeave={() => setTooltipContent("")}
                           onClick={() => handleCountryClick(geo)}
                           style={{
                           default: {
-                              fill: isSelected ? "#1e3a8a" : (hasData ? "#3b82f6" : "#ffffff"),
+                              fill: hasData ? countryColor : "#f8fafc",
                               outline: "none",
-                              transition: "fill 0.3s ease"
+                              stroke: "#666666",
+                              strokeWidth: 0.5,
+                              vectorEffect: "non-scaling-stroke",
+                              opacity: isSelected ? 1 : (hasData ? 0.7 : 1),
+                              transition: "all 0.3s ease"
                           },
                           hover: {
-                              fill: hasData ? "#1e3a8a" : "#e0f2fe",
+                              fill: hasData ? countryColor : "#f1f5f9",
                               outline: "none",
-                              cursor: "pointer"
+                              stroke: "#666666",
+                              strokeWidth: 0.5,
+                              vectorEffect: "non-scaling-stroke",
+                              opacity: 1,
+                              cursor: hasData ? "pointer" : "default",
                           },
                           pressed: {
-                              fill: "#172554",
+                              fill: hasData ? countryColor : "#cbd5e1",
                               outline: "none",
+                              stroke: "#666666",
+                              strokeWidth: 0.5,
+                              vectorEffect: "non-scaling-stroke",
+                              opacity: 0.8
                           },
                           }}
                       />
                       );
                   })}
-                  
-                  {geographies.map((geo) => (
-                      <Geography
-                          key={geo.rsmKey + "-stroke"}
-                          geography={geo}
-                          style={{
-                              default: {
-                                  fill: "none",
-                                  stroke: "#cbd5e1",
-                                  strokeWidth: 0.5,
-                                  strokeLinejoin: "round",
-                                  strokeLinecap: "round",
-                                  pointerEvents: "none",
-                                  vectorEffect: "non-scaling-stroke"
-                              }
-                          }}
-                      />
-                  ))}
               </>
               )}
           </Geographies>
