@@ -185,6 +185,7 @@ const App = () => {
           height: "50px", 
           borderRadius: "15px", 
           backgroundColor: darkMode ? "#333333" : "white", 
+          color: darkMode ? "#f0f0f0" : "#333333",
           border: "none",
           fontSize: "1.5rem",
           transition: "all 0.3s ease"
