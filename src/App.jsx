@@ -113,7 +113,11 @@ const App = () => {
       meta.setAttribute('content', bgColor);
       document.head.appendChild(meta);
     } else {
-      metaTags.forEach(tag => tag.setAttribute('content', bgColor));
+      metaTags.forEach(tag => {
+        // If it has a media query, only update if it matches or just update all to the current bgColor
+        // To be safe, we update all theme-color tags to the current background color
+        tag.setAttribute('content', bgColor);
+      });
     }
   }, [darkMode]);
 

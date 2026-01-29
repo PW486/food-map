@@ -1,4 +1,8 @@
 /* Global App Styles */
+body.dark-mode {
+  background-color: #1a1a1a !important;
+}
+
 .font-sans {
   font-family: system-ui, -apple-system, sans-serif;
 }
