@@ -31,7 +31,7 @@ const App = () => {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [tooltipContent, setTooltipContent] = useState("");
   const { width, height } = useWindowSize();
-  const isMobile = window.innerWidth < 600;
+  const isMobile = width < 600;
   const [position, setPosition] = useState({ 
     coordinates: isMobile ? [15, 35] : [20, 15], 
     zoom: isMobile ? 4 : 2 
@@ -105,6 +105,12 @@ const App = () => {
     else setSelectedCountry(null);
   };
 
+  const handleRandomCountry = () => {
+    const countries = Object.keys(foodData);
+    const randomCountry = countries[Math.floor(Math.random() * countries.length)];
+    setSelectedCountry(randomCountry);
+  };
+
   return (
     <div className="font-sans" style={{ width: "100%", height: "100dvh", overflow: "hidden", position: "relative", backgroundColor: "#f0f7ff", touchAction: "none" }}>
       
@@ -122,20 +128,30 @@ const App = () => {
 
       <ZoomControls onZoomIn={handleZoomIn} onZoomOut={handleZoomOut} />
 
-      {tooltipContent && (
+      <button
+        onClick={handleRandomCountry}
+        className="position-absolute bottom-0 start-0 m-4 btn shadow-sm d-flex align-items-center justify-content-center"
+        style={{ 
+          zIndex: 10, 
+          width: "50px", 
+          height: "50px", 
+          borderRadius: "15px", 
+          backgroundColor: "white", 
+          border: "none",
+          fontSize: "1.5rem"
+        }}
+        title="Random Country"
+      >
+        🎲
+      </button>
+
+      {!isMobile && tooltipContent && (
         <div className="position-absolute top-0 start-50 translate-middle-x mt-3 text-white px-3 py-1 rounded-pill shadow-sm opacity-90" style={{ zIndex: 20, backgroundColor: "#333333", pointerEvents: "none" }}>
             {tooltipContent}
         </div>
       )}
 
       <Sidebar selectedCountry={selectedCountry} setSelectedCountry={setSelectedCountry} width={width} />
-      
-      <style>{`
-        @keyframes slideInRight {
-            from { transform: translateX(100%); }
-            to { transform: translateX(0); }
-        }
-      `}</style>
     </div>
   );
 };

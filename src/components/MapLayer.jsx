@@ -6,6 +6,7 @@ import { getCountryColor, mapGeoName } from "../utils/countryMapping";
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json";
 
 const MapLayer = ({ width, height, position, handleMoveEnd, handleCountryClick, selectedCountry, setTooltipContent }) => {
+  const isMobile = width < 600;
   const getScale = () => {
     if (width < 600) return (width / 6.5);
     return 150;
@@ -43,8 +44,8 @@ const MapLayer = ({ width, height, position, handleMoveEnd, handleCountryClick, 
                       <Geography
                           key={geo.rsmKey}
                           geography={geo}
-                          onMouseEnter={() => setTooltipContent(geo.properties.name)}
-                          onMouseLeave={() => setTooltipContent("")}
+                          onMouseEnter={() => !isMobile && setTooltipContent(geo.properties.name)}
+                          onMouseLeave={() => !isMobile && setTooltipContent("")}
                           onClick={() => handleCountryClick(geo)}
                           style={{
                           default: {
