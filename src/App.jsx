@@ -72,8 +72,20 @@ const App = () => {
         setIsSearchActive(false);
       }
     };
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setSelectedCountry(null);
+        setIsSearchActive(false);
+      }
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, []);
 
   useEffect(() => {
