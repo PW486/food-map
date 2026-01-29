@@ -188,8 +188,7 @@ const App = () => {
         });
         setTimeout(() => setIsAnimating(false), 800);
       }
-    }
-  } else {
+    } else {
       setSelectedCountry(null);
     }
   };
