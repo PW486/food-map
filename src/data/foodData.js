@@ -357,7 +357,7 @@ export const foodData = {
   "Turkmenistan": turkmenistan,
   "UAE": uae,
   "Uganda": uganda,
-  "UK": uk,
+  "United Kingdom": uk,
   "Ukraine": ukraine,
   "Uruguay": uruguay,
   "USA": usa,

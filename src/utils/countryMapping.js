@@ -2,7 +2,6 @@
 export const geoNameMap = {
     "United States of America": "USA",
     "United States": "USA",
-    "United Kingdom": "UK",
     "United Arab Emirates": "UAE",
     "Czech Republic": "Czechia",
     "Russian Federation": "Russia",
@@ -62,7 +61,7 @@ export const countryCodeMapping = {
     "Somalia": "so", "Somaliland": "so", "South Africa": "za", "South Sudan": "ss", "Spain": "es", "Sri Lanka": "lk",
     "Sudan": "sd", "Suriname": "sr", "Sweden": "se", "Switzerland": "ch", "Syria": "sy", "Taiwan": "tw",
     "Tajikistan": "tj", "Tanzania": "tz", "Thailand": "th", "Togo": "tg", "Trinidad and Tobago": "tt",
-    "Tunisia": "tn", "Turkey": "tr", "Turkmenistan": "tm", "UAE": "ae", "Uganda": "ug", "UK": "gb",
+    "Tunisia": "tn", "Turkey": "tr", "Turkmenistan": "tm", "UAE": "ae", "Uganda": "ug", "United Kingdom": "gb",
     "Ukraine": "ua", "Uruguay": "uy", "USA": "us", "Uzbekistan": "uz", "Venezuela": "ve", "Vietnam": "vn",
     "Western Sahara": "eh", "Yemen": "ye", "Zambia": "zm", "Zimbabwe": "zw"
 };
@@ -106,7 +105,7 @@ export const countryColorMapping = {
     "Somalia": PURPLE, "Somaliland": BLUE, "South Africa": PINK, "South Sudan": PINK, "Spain": YELLOW, "Sri Lanka": BLUE,
     "Sudan": ORANGE, "Suriname": YELLOW, "Sweden": YELLOW, "Switzerland": GREEN, "Syria": BLUE, "Taiwan": BLUE,
     "Tajikistan": BLUE, "Tanzania": PINK, "Thailand": ORANGE, "Togo": ORANGE, "Trinidad and Tobago": ORANGE,
-    "Tunisia": PURPLE, "Turkey": PINK, "Turkmenistan": YELLOW, "UAE": GREEN, "Uganda": YELLOW, "UK": PURPLE,
+    "Tunisia": PURPLE, "Turkey": PINK, "Turkmenistan": YELLOW, "UAE": GREEN, "Uganda": YELLOW, "United Kingdom": PURPLE,
     "Ukraine": ORANGE, "Uruguay": YELLOW, "USA": ORANGE, "Uzbekistan": PINK, "Venezuela": PINK, "Vietnam": GREEN,
     "Western Sahara": PURPLE, "Yemen": PINK, "Zambia": ORANGE, "Zimbabwe": GREEN
 };
