@@ -1,5 +1,10 @@
 /* Global App Styles */
-body.dark-mode {
+html, body {
+  background-color: #f0f7ff;
+  transition: background-color 0.3s ease;
+}
+
+html.dark-mode, body.dark-mode {
   background-color: #1a1a1a !important;
 }
 

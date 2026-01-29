@@ -104,12 +104,17 @@ const App = () => {
       bgColor = darkMode ? "#1a1a1a" : "#f0f7ff"; // App background color
     }
 
-    // Apply colors to body and class
+    // Apply colors to html, body and classes
+    const root = document.documentElement;
     if (darkMode) {
+      root.classList.add("dark-mode");
       document.body.classList.add("dark-mode");
     } else {
+      root.classList.remove("dark-mode");
       document.body.classList.remove("dark-mode");
     }
+    
+    root.style.backgroundColor = bgColor;
     document.body.style.backgroundColor = bgColor;
 
     // Update Safari status bar color (theme-color)
