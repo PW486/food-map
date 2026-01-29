@@ -117,14 +117,17 @@ const App = () => {
     root.style.backgroundColor = bgColor;
     document.body.style.backgroundColor = bgColor;
 
-    // Update Safari status bar color (theme-color)
-    let metaThemeColor = document.querySelector('meta[name="theme-color"]');
-    if (!metaThemeColor) {
-      metaThemeColor = document.createElement('meta');
-      metaThemeColor.setAttribute('name', 'theme-color');
-      document.head.appendChild(metaThemeColor);
-    }
-    metaThemeColor.setAttribute('content', bgColor);
+    // Update Safari status bar color (theme-color) with a tiny delay
+    // This delay helps Safari recognize the background change after UI transitions
+    requestAnimationFrame(() => {
+      let metaThemeColor = document.querySelector('meta[name="theme-color"]');
+      if (!metaThemeColor) {
+        metaThemeColor = document.createElement('meta');
+        metaThemeColor.setAttribute('name', 'theme-color');
+        document.head.appendChild(metaThemeColor);
+      }
+      metaThemeColor.setAttribute('content', bgColor);
+    });
   }, [darkMode, selectedCountry, isMobile]);
 
   useEffect(() => {
