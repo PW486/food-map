@@ -4,12 +4,13 @@ An interactive and immersive world map designed to explore iconic traditional cu
 
 ## ✨ Latest Features
 
-- **🔍 Smart Search**: Quickly find any country or cuisine with real-time auto-complete.
+- **🔍 Smart Search**: Quickly find any country or cuisine with real-time auto-complete and keyboard support.
 - **🌗 Adaptive Dark Mode**: Automatically detects system preferences and supports manual toggling for a comfortable viewing experience.
-- **✈️ Smooth Fly-to Transitions**: Experience fluid map movement when selecting countries or using the random "Explore" button.
-- **📱 Mobile Optimized**: Fully responsive design with intuitive touch controls and a specialized layout for smaller screens.
-- **📸 Live Visuals**: Fetches high-quality traditional dish images dynamically via the Wikimedia Commons API.
-- **📲 PWA Support**: Installable on home screens for an app-like experience.
+- **✈️ Smooth Fly-to Transitions**: Fluid map movement with synchronized UI animations when selecting countries or exploring randomly.
+- **⌨️ Keyboard Navigation**: Use the **Escape** key to instantly close sidebars or search menus for a snappier experience.
+- **📱 Mobile Optimized**: Fully responsive design with intuitive touch controls, optimized search bar, and Safari status bar color synchronization.
+- **📸 Live Visuals**: Dynamic traditional dish images fetched via the Wikimedia Commons API with fallback placeholders.
+- **📲 PWA Support**: Installable on home screens with a custom maskable icon.
 
 ## 🚀 Key Highlights
 

@@ -109,8 +109,6 @@ const App = () => {
 
   useEffect(() => {
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
-    
-    // Apply dark-mode class to html and body
     const root = document.documentElement;
     if (darkMode) {
       root.classList.add("dark-mode");
@@ -359,7 +357,7 @@ const App = () => {
 
       {!isMobile && tooltipContent && (
         <div className="position-absolute top-0 start-50 translate-middle-x mt-3 text-white px-3 py-1 rounded-pill shadow-sm opacity-90" style={{ zIndex: 20, backgroundColor: darkMode ? "#444444" : "#333333", pointerEvents: "none" }}>
-            {tooltipContent}
+          {tooltipContent}
         </div>
       )}
 
