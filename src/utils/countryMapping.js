@@ -107,7 +107,7 @@ export const countryColorMapping = {
     "South Korea": PINK, "Kosovo": PINK, "Kuwait": PINK, "Kyrgyzstan": GREEN, "Laos": BLUE, "Latvia": YELLOW,
     "Lebanon": PINK, "Lesotho": GREEN, "Liberia": ORANGE, "Libya": YELLOW, "Liechtenstein": GREEN, "Lithuania": GREEN,
     "Luxembourg": YELLOW, "Madagascar": ORANGE, "Malawi": BLUE, "Malaysia": BLUE, "Maldives": ORANGE, "Mali": ORANGE,
-    "Malta": ORANGE, "Mauritania": PINK, "Mauritius": PURPLE, "Mexico": PINK, "Moldova": PINK, "Mongolia": PINK,
+    "Malta": PINK, "Mauritania": PINK, "Mauritius": PURPLE, "Mexico": PINK, "Moldova": PINK, "Mongolia": PINK,
     "Montenegro": YELLOW, "Morocco": BLUE, "Mozambique": PURPLE, "Myanmar": PINK, "Namibia": GREEN, "Nepal": PINK,
     "Netherlands": GREEN, "New Zealand": GREEN, "Nicaragua": ORANGE, "Niger": BLUE, "Nigeria": GREEN, "North Korea": YELLOW,
     "North Macedonia": GREEN, "Northern Cyprus": YELLOW, "Norway": PINK, "Oman": YELLOW, "Pakistan": YELLOW,
