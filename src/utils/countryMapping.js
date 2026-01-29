@@ -1,7 +1,7 @@
 // Centralized name mapping: GeoJSON names -> Our Data Keys
 export const geoNameMap = {
-    "United States of America": "USA",
-    "United States": "USA",
+    "United States of America": "United States",
+    "United States": "United States",
     "United Arab Emirates": "UAE",
     "Czech Republic": "Czechia",
     "Russian Federation": "Russia",
@@ -62,7 +62,7 @@ export const countryCodeMapping = {
     "Sudan": "sd", "Suriname": "sr", "Sweden": "se", "Switzerland": "ch", "Syria": "sy", "Taiwan": "tw",
     "Tajikistan": "tj", "Tanzania": "tz", "Thailand": "th", "Togo": "tg", "Trinidad and Tobago": "tt",
     "Tunisia": "tn", "Turkey": "tr", "Turkmenistan": "tm", "UAE": "ae", "Uganda": "ug", "United Kingdom": "gb",
-    "Ukraine": "ua", "Uruguay": "uy", "USA": "us", "Uzbekistan": "uz", "Venezuela": "ve", "Vietnam": "vn",
+    "Ukraine": "ua", "Uruguay": "uy", "United States": "us", "Uzbekistan": "uz", "Venezuela": "ve", "Vietnam": "vn",
     "Western Sahara": "eh", "Yemen": "ye", "Zambia": "zm", "Zimbabwe": "zw"
 };
 
@@ -106,7 +106,7 @@ export const countryColorMapping = {
     "Sudan": ORANGE, "Suriname": YELLOW, "Sweden": YELLOW, "Switzerland": GREEN, "Syria": BLUE, "Taiwan": BLUE,
     "Tajikistan": BLUE, "Tanzania": PINK, "Thailand": ORANGE, "Togo": ORANGE, "Trinidad and Tobago": ORANGE,
     "Tunisia": PURPLE, "Turkey": PINK, "Turkmenistan": YELLOW, "UAE": GREEN, "Uganda": YELLOW, "United Kingdom": PURPLE,
-    "Ukraine": ORANGE, "Uruguay": YELLOW, "USA": ORANGE, "Uzbekistan": PINK, "Venezuela": PINK, "Vietnam": GREEN,
+    "Ukraine": ORANGE, "Uruguay": YELLOW, "United States": ORANGE, "Uzbekistan": PINK, "Venezuela": PINK, "Vietnam": GREEN,
     "Western Sahara": PURPLE, "Yemen": PINK, "Zambia": ORANGE, "Zimbabwe": GREEN
 };
 

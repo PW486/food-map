@@ -360,7 +360,7 @@ export const foodData = {
   "United Kingdom": uk,
   "Ukraine": ukraine,
   "Uruguay": uruguay,
-  "USA": usa,
+  "United States": usa,
   "Uzbekistan": uzbekistan,
   "Venezuela": venezuela,
   "Vietnam": vietnam,
