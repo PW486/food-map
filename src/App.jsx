@@ -273,7 +273,7 @@ const App = () => {
             style={{ 
               top: "14px", 
               left: "14px", 
-              color: darkMode ? "white" : "#666666",
+              color: darkMode ? "#f0f0f0" : "#333333",
               cursor: "pointer",
               zIndex: 101
             }} 
@@ -302,7 +302,7 @@ const App = () => {
               style={{ 
                 top: "16px", 
                 right: "15px", 
-                color: darkMode ? "white" : "#666666",
+                color: darkMode ? "#f0f0f0" : "#333333",
                 cursor: "pointer",
                 zIndex: 101
               }} 
