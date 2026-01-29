@@ -4,12 +4,14 @@ import logo from "../assets/logo.png";
 const Header = ({ darkMode }) => {
   return (
     <header 
-      className="position-absolute start-0 m-3 p-3 shadow rounded-4 d-flex align-items-center gap-3" 
+      className="position-absolute start-0 m-3 p-3 rounded-4 d-flex align-items-center gap-3" 
       style={{ 
         zIndex: 10, 
         maxWidth: "400px",
         top: "env(safe-area-inset-top, 0px)",
         backgroundColor: darkMode ? "#333333" : "white",
+        border: darkMode ? "none" : "1px solid #e2e8f0",
+        boxShadow: darkMode ? "0 4px 6px -1px rgba(0,0,0,0.2)" : "none",
         transition: "all 0.3s ease"
       }}
     >
