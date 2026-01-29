@@ -147,10 +147,12 @@ const App = () => {
   }, []);
 
   const handleZoomIn = () => {
+    setIsSearchActive(false);
     if (position.zoom < 128) setPosition(pos => ({ ...pos, zoom: pos.zoom * 1.5 }));
   };
 
   const handleZoomOut = () => {
+    setIsSearchActive(false);
     if (position.zoom > 1) setPosition(pos => ({ ...pos, zoom: pos.zoom / 1.5 }));
   };
 
@@ -257,18 +259,21 @@ const App = () => {
                                         </div>
                                       )}
                             
-                                      <Search 
-                                        size={22} 
-                                        className="position-absolute" 
-                                        style={{ 
-                                          top: "14px", 
-                                          left: "14px", 
-                                          color: darkMode ? "#aaaaaa" : "#666666",
-                                          pointerEvents: "none",
-                                          zIndex: 101
-                                        }} 
-                                      />
-                                      <input
+                                                <Search 
+                                                  size={22} 
+                                                  className="position-absolute" 
+                                                  style={{ 
+                                                    top: "14px", 
+                                                    left: "14px", 
+                                                    color: darkMode ? "#aaaaaa" : "#666666",
+                                                    cursor: "pointer",
+                                                    zIndex: 101
+                                                  }} 
+                                                  onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    setIsSearchActive(!isSearchActive);
+                                                  }}
+                                                />                                      <input
                                         type="text"
                                         className="search-input shadow-sm"
                                         placeholder={isSearchActive ? "Search country..." : ""}
@@ -296,7 +301,10 @@ const App = () => {
                             </div>                  </div>      
       <div className="position-absolute bottom-0 end-0 m-4 d-flex flex-column gap-2" style={{ zIndex: 10 }}>
         <button
-          onClick={() => setDarkMode(!darkMode)}
+          onClick={() => {
+            setDarkMode(!darkMode);
+            setIsSearchActive(false);
+          }}
           className="btn shadow-sm d-flex align-items-center justify-content-center"
           style={{ 
             width: "50px", 
