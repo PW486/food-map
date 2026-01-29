@@ -157,14 +157,14 @@ const App = () => {
     setIsSearchActive(false);
     setIsAnimating(true);
     if (position.zoom < 128) setPosition(pos => ({ ...pos, zoom: pos.zoom * 1.5 }));
-    setTimeout(() => setIsAnimating(false), 800);
+    setTimeout(() => setIsAnimating(false), 300);
   };
 
   const handleZoomOut = () => {
     setIsSearchActive(false);
     setIsAnimating(true);
     if (position.zoom > 1) setPosition(pos => ({ ...pos, zoom: pos.zoom / 1.5 }));
-    setTimeout(() => setIsAnimating(false), 800);
+    setTimeout(() => setIsAnimating(false), 300);
   };
 
   const handleMoveEnd = (newPosition) => setPosition(newPosition);
@@ -183,7 +183,7 @@ const App = () => {
           coordinates: centroid,
           zoom: 4
         });
-        setTimeout(() => setIsAnimating(false), 800);
+        setTimeout(() => setIsAnimating(false), 300);
       }
     }
   };
@@ -199,7 +199,7 @@ const App = () => {
           coordinates: centroid,
           zoom: 4
         });
-        setTimeout(() => setIsAnimating(false), 800);
+        setTimeout(() => setIsAnimating(false), 300);
       }
     } else {
       setSelectedCountry(null);
