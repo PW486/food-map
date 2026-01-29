@@ -104,7 +104,14 @@ const App = () => {
     }
 
     // Update Safari status bar color (theme-color)
-    const bgColor = darkMode ? "#1a1a1a" : "#f0f7ff";
+    // On mobile, if sidebar is open, match sidebar header color. Otherwise match app background.
+    let bgColor;
+    if (isMobile && selectedCountry) {
+      bgColor = darkMode ? "#252525" : "#ffffff";
+    } else {
+      bgColor = darkMode ? "#1a1a1a" : "#f0f7ff";
+    }
+
     let metaTags = document.querySelectorAll('meta[name="theme-color"]');
     
     if (metaTags.length === 0) {
@@ -114,12 +121,10 @@ const App = () => {
       document.head.appendChild(meta);
     } else {
       metaTags.forEach(tag => {
-        // If it has a media query, only update if it matches or just update all to the current bgColor
-        // To be safe, we update all theme-color tags to the current background color
         tag.setAttribute('content', bgColor);
       });
     }
-  }, [darkMode]);
+  }, [darkMode, selectedCountry, isMobile]);
 
   useEffect(() => {
     const handleWheel = (e) => {
