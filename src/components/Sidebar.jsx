@@ -46,8 +46,7 @@ const Sidebar = ({ selectedCountry, setSelectedCountry, width, darkMode }) => {
         width: width < 600 ? "100vw" : "350px", 
         animation: isClosing ? "slideOutRight 0.3s ease-in forwards" : "slideInRight 0.3s ease-out",
         paddingBottom: "env(safe-area-inset-bottom, 0px)",
-        backgroundColor: darkMode ? "#121212" : "#f8fafc",
-        borderLeft: darkMode ? "none" : "1px solid #cbd5e1",
+        backgroundColor: darkMode ? "#121212" : "#f1f5f9",
         boxShadow: darkMode ? "-4px 0 15px rgba(0,0,0,0.5)" : "none",
         transition: "all 0.3s ease"
       }}
@@ -57,9 +56,8 @@ const Sidebar = ({ selectedCountry, setSelectedCountry, width, darkMode }) => {
                 zIndex: 5, 
                 margin: "0 -1.5rem", 
                 padding: "1.5rem", 
-                backgroundColor: darkMode ? "#252525" : "#ffffff", 
+                backgroundColor: darkMode ? "#252525" : "#f1f5f9", 
                 boxShadow: darkMode ? "0 4px 6px -1px rgba(0,0,0,0.3)" : "none",
-                borderBottom: darkMode ? "none" : "1px solid #cbd5e1",
                 transition: "all 0.3s ease" 
             }}>
                 <div className="d-flex align-items-start justify-content-between">
@@ -88,8 +86,8 @@ const Sidebar = ({ selectedCountry, setSelectedCountry, width, darkMode }) => {
             <div className="d-flex flex-column gap-4">
                 {foodData[displayCountry] && foodData[displayCountry].map((food, index) => (
                     <div key={index} className="card border-0" style={{ 
-                      backgroundColor: darkMode ? "#1e1e1e" : "#ffffff", 
-                      border: darkMode ? "1px solid #2d2d2d" : "1px solid #cbd5e1" 
+                      backgroundColor: darkMode ? "#1e1e1e" : "#ffffff",
+                      transition: "all 0.3s ease"
                     }}>
                         <div className="position-relative overflow-hidden rounded-top" style={{ height: "160px" }}>
                             <WikiFoodImage 
