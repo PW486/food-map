@@ -120,7 +120,7 @@ export const countryColorMapping = {
     "Tajikistan": BLUE, "Tanzania": PINK, "Thailand": ORANGE, "Togo": ORANGE, "Trinidad and Tobago": ORANGE,
     "Tunisia": PURPLE, "Turkey": PINK, "Turkmenistan": YELLOW, "UAE": GREEN, "Uganda": YELLOW, "UK": PURPLE,
     "Ukraine": ORANGE, "Uruguay": YELLOW, "USA": ORANGE, "Uzbekistan": PINK, "Venezuela": PINK, "Vietnam": GREEN,
-    "Western Sahara": GREEN, "Yemen": PINK, "Zambia": ORANGE, "Zimbabwe": GREEN
+    "Western Sahara": PURPLE, "Yemen": PINK, "Zambia": ORANGE, "Zimbabwe": GREEN
 };
 
 export const getCountryColor = (name) => countryColorMapping[name] || "#f8fafc";
