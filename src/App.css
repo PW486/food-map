@@ -80,7 +80,7 @@
 
 
 
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
 
 
@@ -89,6 +89,46 @@
 
 
   z-index: 100;
+
+
+
+
+
+
+
+  width: 50px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.search-container.active {
+
+
+
+
+
+
+
+  width: 200px;
 
 
 
@@ -120,23 +160,7 @@
 
 
 
-
-
-
-
-
-
-
-
   border-radius: 15px;
-
-
-
-
-
-
-
-
 
 
 
@@ -152,14 +176,6 @@
 
 
 
-
-
-
-
-
-
-
-
   border: none;
 
 
@@ -168,23 +184,7 @@
 
 
 
-
-
-
-
-
-
-
-
-  width: 50px;
-
-
-
-
-
-
-
-
+  width: 100%;
 
 
 
@@ -200,14 +200,6 @@
 
 
 
-
-
-
-
-
-
-
-
   background-color: white;
 
 
@@ -216,23 +208,7 @@
 
 
 
-
-
-
-
-
-
-
-
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-
-
-
-
-
-
-
+  transition: all 0.3s ease;
 
 
 
@@ -248,23 +224,7 @@
 
 
 
-
-
-
-
-
-
-
-
   box-sizing: border-box;
-
-
-
-
-
-
-
-
 
 
 
@@ -280,23 +240,7 @@
 
 
 
-
-
-
-
-
-
-
-
   display: flex;
-
-
-
-
-
-
-
-
 
 
 
@@ -312,23 +256,7 @@
 
 
 
-
-
-
-
-
-
-
-
   justify-content: center;
-
-
-
-
-
-
-
-
 
 
 
@@ -352,47 +280,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.search-input:focus, .search-input.active {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  width: 280px;
-
-
-
-
-
-
-
-
+.search-container.active .search-input {
 
 
 
@@ -408,23 +296,7 @@
 
 
 
-
-
-
-
-
-
-
-
   padding-right: 15px;
-
-
-
-
-
-
-
-
 
 
 
@@ -440,14 +312,6 @@
 
 
 
-
-
-
-
-
-
-
-
   outline: none;
 
 
@@ -456,23 +320,7 @@
 
 
 
-
-
-
-
-
-
-
-
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-
-
-
-
-
-
-
-
 
 
 
@@ -504,6 +352,7 @@
 
 
 
+  .search-container.active {
 
 
 
@@ -511,32 +360,7 @@
 
 
 
-
-  .search-input:focus, .search-input.active {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    width: 65vw;
-
-
-
-
-
-
-
-
+    width: 50vw;
 
 
 
@@ -545,62 +369,6 @@
 
 
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  .search-results {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    width: 65vw;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  }
-
-
-
-
-
-
-
-
 
 
 
@@ -632,23 +400,7 @@
 
 
 
-
-
-
-
-
-
-
-
   position: absolute;
-
-
-
-
-
-
-
-
 
 
 
@@ -664,14 +416,6 @@
 
 
 
-
-
-
-
-
-
-
-
   left: 0;
 
 
@@ -680,23 +424,7 @@
 
 
 
-
-
-
-
-
-
-
-
-  width: 280px;
-
-
-
-
-
-
-
-
+  width: 100%;
 
 
 
@@ -705,14 +433,6 @@
 
 
   max-height: 300px;
-
-
-
-
-
-
-
-
 
 
 
