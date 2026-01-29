@@ -1,5 +1,5 @@
 import React from "react";
-import { ZoomIn, ZoomOut } from "lucide-react";
+import { Plus, Minus } from "lucide-react";
 
 const ZoomControls = ({ onZoomIn, onZoomOut, darkMode }) => {
   return (
@@ -19,7 +19,7 @@ const ZoomControls = ({ onZoomIn, onZoomOut, darkMode }) => {
         aria-label="Zoom In"
         title="Zoom In"
       >
-        <ZoomIn size={24} />
+        <Plus size={24} />
       </button>
       <button 
         className="btn shadow-lg d-flex align-items-center justify-content-center border-0" 
@@ -36,7 +36,7 @@ const ZoomControls = ({ onZoomIn, onZoomOut, darkMode }) => {
         aria-label="Zoom Out"
         title="Zoom Out"
       >
-        <ZoomOut size={24} />
+        <Minus size={24} />
       </button>
     </div>
   );
