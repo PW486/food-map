@@ -89,7 +89,7 @@ const BLUE = "#4D96FF";
 const PURPLE = "#9D4EDD";
 
 export const countryColorMapping = {
-    "Afghanistan": GREEN, "Albania": BLUE, "Algeria": GREEN, "Andorra": PINK, "Angola": PINK, "Argentina": PINK,
+    "Afghanistan": GREEN, "Albania": PURPLE, "Algeria": GREEN, "Andorra": PURPLE, "Angola": PINK, "Argentina": PINK,
     "Armenia": ORANGE, "Australia": YELLOW, "Austria": YELLOW, "Azerbaijan": PURPLE, "Bahamas": PURPLE, "Bahrain": BLUE,
     "Bangladesh": ORANGE, "Belarus": PURPLE, "Belgium": BLUE, "Belize": GREEN, "Benin": PINK, "Bermuda": ORANGE, "Bhutan": BLUE,
     "Bolivia": YELLOW, "Bosnia and Herz.": GREEN, "Botswana": YELLOW, "Brazil": GREEN, "Brunei": YELLOW, "Bulgaria": PURPLE,
@@ -105,7 +105,7 @@ export const countryColorMapping = {
     "Indonesia": PINK, "Iran": BLUE, "Iraq": PURPLE, "Ireland": YELLOW, "Israel": YELLOW, "Italy": BLUE,
     "Ivory Coast": PINK, "Jamaica": YELLOW, "Japan": PURPLE, "Jordan": PINK, "Kazakhstan": PURPLE, "Kenya": ORANGE,
     "South Korea": PINK, "Kosovo": PINK, "Kuwait": PINK, "Kyrgyzstan": GREEN, "Laos": BLUE, "Latvia": YELLOW,
-    "Lebanon": PINK, "Lesotho": GREEN, "Liberia": ORANGE, "Libya": YELLOW, "Liechtenstein": GREEN, "Lithuania": GREEN,
+    "Lebanon": PINK, "Lesotho": GREEN, "Liberia": ORANGE, "Libya": YELLOW, "Liechtenstein": PURPLE, "Lithuania": GREEN,
     "Luxembourg": YELLOW, "Madagascar": ORANGE, "Malawi": BLUE, "Malaysia": BLUE, "Maldives": ORANGE, "Mali": ORANGE,
     "Malta": PINK, "Mauritania": PINK, "Mauritius": PURPLE, "Mexico": PINK, "Moldova": PINK, "Mongolia": PINK,
     "Montenegro": YELLOW, "Morocco": BLUE, "Mozambique": PURPLE, "Myanmar": PINK, "Namibia": BLUE, "Nepal": PINK,
