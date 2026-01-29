@@ -102,6 +102,8 @@ const App = () => {
   useEffect(() => {
     if (isSearchActive && inputRef.current) {
       inputRef.current.focus();
+    } else if (!isSearchActive) {
+      setSearchQuery("");
     }
   }, [isSearchActive]);
 
