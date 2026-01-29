@@ -308,11 +308,10 @@ const App = () => {
                               )}
                             </div>                  </div>      
       <div 
-        className="position-absolute bottom-0 end-0 m-4 d-flex flex-column gap-2" 
+        className="position-absolute bottom-0 end-0 m-4 d-flex flex-column gap-2 sync-transition" 
         style={{ 
           zIndex: 10,
           transform: (!isMobile && selectedCountry) ? "translateX(-350px)" : "translateX(0)",
-          transition: "transform 0.5s ease-out"
         }}
       >
         <button

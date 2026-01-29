@@ -5,30 +5,19 @@ import { getCountryColor, getCountryCode } from "../utils/countryMapping";
 
 const Sidebar = ({ selectedCountry, setSelectedCountry, width, darkMode }) => {
   const sidebarRef = useRef(null);
-  const [isClosing, setIsClosing] = useState(false);
-  const [displayCountry, setDisplayCountry] = useState(selectedCountry);
+  const [displayCountry, setDisplayCountry] = useState(null);
 
   useEffect(() => {
     if (selectedCountry) {
       setDisplayCountry(selectedCountry);
-      setIsClosing(false);
       if (sidebarRef.current) {
         sidebarRef.current.scrollTop = 0;
       }
-    } else if (displayCountry) {
-      setIsClosing(true);
-      const timer = setTimeout(() => {
-        setDisplayCountry(null);
-        setIsClosing(false);
-      }, 300); // 0.3s matches animation duration
-      return () => clearTimeout(timer);
     }
-  }, [selectedCountry, displayCountry]);
+  }, [selectedCountry]);
 
-  if (!displayCountry) return null;
-
-  const countryColor = getCountryColor(displayCountry);
-  const countryCode = getCountryCode(displayCountry);
+  const countryColor = displayCountry ? getCountryColor(displayCountry) : null;
+  const countryCode = displayCountry ? getCountryCode(displayCountry) : null;
 
   const handleClose = (e) => {
     e.preventDefault();
@@ -40,15 +29,14 @@ const Sidebar = ({ selectedCountry, setSelectedCountry, width, darkMode }) => {
     <div 
       ref={sidebarRef}
       onClick={(e) => e.stopPropagation()}
-      className={`position-absolute top-0 end-0 h-100 overflow-auto ${darkMode ? "text-white" : "text-dark"}`} 
+      className={`position-absolute top-0 end-0 h-100 overflow-auto sync-transition ${darkMode ? "text-white" : "text-dark"}`} 
       style={{ 
         zIndex: 30, 
         width: width < 600 ? "100vw" : "350px", 
-        animation: isClosing ? "slideOutRight 0.3s ease-in forwards" : "slideInRight 0.3s ease-out",
+        transform: selectedCountry ? "translateX(0)" : "translateX(100%)",
         paddingBottom: "env(safe-area-inset-bottom, 0px)",
         backgroundColor: darkMode ? "#121212" : "#f1f5f9",
         boxShadow: darkMode ? "-4px 0 15px rgba(0,0,0,0.5)" : "none",
-        transition: "all 0.3s ease"
       }}
     >
         <div className="p-4 pt-0">

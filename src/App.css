@@ -14,13 +14,11 @@
   to { transform: translateX(100%); }
 }
 
-.sidebar-animation-in {
-  animation: slideInRight 0.3s ease-out;
+/* Sidebar & Button Sync Transitions */
+.sync-transition {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-.sidebar-animation-out {
-  animation: slideOutRight 0.3s ease-in forwards;
-}
 
 /* Custom Scrollbar for Sidebar */
 .overflow-auto::-webkit-scrollbar {
