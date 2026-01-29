@@ -104,7 +104,7 @@ export const countryColorMapping = {
     "Haiti": GREEN, "Honduras": PURPLE, "Hong Kong": PINK, "Hungary": GREEN, "Iceland": ORANGE, "India": PURPLE,
     "Indonesia": PINK, "Iran": BLUE, "Iraq": PURPLE, "Ireland": YELLOW, "Israel": YELLOW, "Italy": BLUE,
     "Ivory Coast": PINK, "Jamaica": YELLOW, "Japan": PURPLE, "Jordan": PINK, "Kazakhstan": PURPLE, "Kenya": ORANGE,
-    "South Korea": PINK, "Kosovo": PINK, "Kuwait": PINK, "Kyrgyzstan": GREEN, "Laos": BLUE, "Latvia": YELLOW,
+    "South Korea": GREEN, "Kosovo": PINK, "Kuwait": PINK, "Kyrgyzstan": GREEN, "Laos": BLUE, "Latvia": YELLOW,
     "Lebanon": PINK, "Lesotho": GREEN, "Liberia": ORANGE, "Libya": YELLOW, "Liechtenstein": PURPLE, "Lithuania": GREEN,
     "Luxembourg": YELLOW, "Madagascar": ORANGE, "Malawi": BLUE, "Malaysia": BLUE, "Maldives": ORANGE, "Mali": ORANGE,
     "Malta": PINK, "Mauritania": PINK, "Mauritius": PURPLE, "Mexico": BLUE, "Moldova": PINK, "Mongolia": PINK,
