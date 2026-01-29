@@ -37,7 +37,8 @@ export const geoNameMap = {
     "Sao Tome and Principe": "Sao Tome and Principe",
     "Somaliland": "Somaliland",
     "Bahrain": "Bahrain",
-    "Northern Cyprus": "Northern Cyprus"
+    "Belize": "Belize",
+    "N. Cyprus": "Northern Cyprus"
 };
 
 export const mapGeoName = (name) => geoNameMap[name] || name;
@@ -46,7 +47,7 @@ export const mapGeoName = (name) => geoNameMap[name] || name;
 export const countryCodeMapping = {
     "Afghanistan": "af", "Albania": "al", "Algeria": "dz", "Andorra": "ad", "Angola": "ao", "Argentina": "ar",
     "Armenia": "am", "Australia": "au", "Austria": "at", "Azerbaijan": "az", "Bahamas": "bs", "Bahrain": "bh",
-    "Bangladesh": "bd", "Belarus": "by", "Belgium": "be", "Benin": "bj", "Bermuda": "bm", "Bhutan": "bt",
+    "Bangladesh": "bd", "Belarus": "by", "Belgium": "be", "Belize": "bz", "Benin": "bj", "Bermuda": "bm", "Bhutan": "bt",
     "Bolivia": "bo", "Bosnia and Herz.": "ba", "Botswana": "bw", "Brazil": "br", "Brunei": "bn", "Bulgaria": "bg",
     "Burkina Faso": "bf", "Burundi": "bi", "Cambodia": "kh", "Cameroon": "cm", "Canada": "ca", "Cape Verde": "cv",
     "Central African Republic": "cf", "Chad": "td", "Chile": "cl", "China": "cn", "Colombia": "co", "Comoros": "km",
@@ -65,7 +66,7 @@ export const countryCodeMapping = {
     "Malta": "mt", "Mauritania": "mr", "Mauritius": "mu", "Mexico": "mx", "Moldova": "md", "Mongolia": "mn",
     "Montenegro": "me", "Morocco": "ma", "Mozambique": "mz", "Myanmar": "mm", "Namibia": "na", "Nepal": "np",
     "Netherlands": "nl", "New Zealand": "nz", "Nicaragua": "ni", "Niger": "ne", "Nigeria": "ng", "North Korea": "kp",
-    "North Macedonia": "mk", "Northern Cyprus": "ct", "Norway": "no", "Oman": "om", "Pakistan": "pk",
+    "North Macedonia": "mk", "Northern Cyprus": "cy", "Norway": "no", "Oman": "om", "Pakistan": "pk",
     "Palestine": "ps", "Panama": "pa", "Papua New Guinea": "pg", "Paraguay": "py", "Peru": "pe", "Philippines": "ph",
     "Poland": "pl", "Portugal": "pt", "Puerto Rico": "pr", "Qatar": "qa", "Romania": "ro", "Russia": "ru",
     "Rwanda": "rw", "Sao Tome and Principe": "st", "Saudi Arabia": "sa", "Senegal": "sn", "Serbia": "rs",
@@ -81,46 +82,45 @@ export const countryCodeMapping = {
 export const getCountryCode = (name) => countryCodeMapping[name] || null;
 
 const PINK = "#FF6B6B";
+const ORANGE = "#FFA552"; 
 const YELLOW = "#FFD93D";
 const GREEN = "#6BCB77";
 const BLUE = "#4D96FF";
 const PURPLE = "#9D4EDD";
-const NAVY = "#2D3A4A";
 
 export const countryColorMapping = {
-    "Afghanistan": PURPLE, "Albania": YELLOW, "Algeria": PINK, "Andorra": YELLOW, "Angola": YELLOW, "Argentina": GREEN,
-    "Armenia": YELLOW, "Australia": BLUE, "Austria": YELLOW, "Azerbaijan": PINK, "Bahamas": GREEN, "Bahrain": BLUE,
-    "Bangladesh": YELLOW, "Belarus": GREEN, "Belgium": PINK, "Benin": YELLOW, "Bermuda": PINK, "Bhutan": YELLOW,
-    "Bolivia": PURPLE, "Bosnia and Herz.": GREEN, "Botswana": GREEN, "Brazil": BLUE, "Brunei": PINK, "Bulgaria": YELLOW,
-    "Burkina Faso": GREEN, "Burundi": GREEN, "Cambodia": PINK, "Cameroon": PINK, "Canada": PINK, "Cape Verde": YELLOW,
-    "Central African Republic": YELLOW, "Chad": GREEN, "Chile": PINK, "China": BLUE, "Colombia": PURPLE, "Comoros": PINK,
-    "Republic of the Congo": GREEN, "Costa Rica": GREEN, "Croatia": PURPLE, "Cuba": BLUE, "Cyprus": YELLOW, "Czechia": YELLOW,
-    "Denmark": GREEN, "Djibouti": BLUE, "Dominican Republic": PINK, "Democratic Republic of the Congo": BLUE,
-    "East Timor": YELLOW, "Ecuador": YELLOW, "Egypt": BLUE, "El Salvador": GREEN, "Equatorial Guinea": BLUE,
-    "Eritrea": GREEN, "Estonia": GREEN, "Eswatini": GREEN, "Ethiopia": PURPLE, "Fiji": GREEN, "Finland": PINK,
-    "France": PURPLE, "Gabon": YELLOW, "Gambia": PINK, "Georgia": GREEN, "Germany": BLUE, "Ghana": YELLOW,
-    "Greece": GREEN, "Greenland": YELLOW, "Guatemala": PINK, "Guinea": BLUE, "Guinea-Bissau": PINK, "Guyana": GREEN,
-    "Haiti": YELLOW, "Honduras": YELLOW, "Hong Kong": YELLOW, "Hungary": PURPLE, "Iceland": GREEN, "India": GREEN,
-    "Indonesia": PINK, "Iran": BLUE, "Iraq": YELLOW, "Ireland": GREEN, "Israel": BLUE, "Italy": NAVY,
-    "Ivory Coast": PINK, "Jamaica": GREEN, "Japan": GREEN, "Jordan": PINK, "Kazakhstan": GREEN, "Kenya": BLUE,
-    "South Korea": YELLOW, "Kosovo": GREEN, "Kuwait": PINK, "Kyrgyzstan": BLUE, "Laos": GREEN, "Latvia": PINK,
-    "Lebanon": BLUE, "Lesotho": YELLOW, "Liberia": YELLOW, "Libya": YELLOW, "Liechtenstein": PINK, "Lithuania": YELLOW,
-    "Luxembourg": BLUE, "Madagascar": GREEN, "Malawi": PURPLE, "Malaysia": GREEN, "Maldives": PINK, "Mali": YELLOW,
-    "Malta": PINK, "Mauritania": GREEN, "Mauritius": YELLOW, "Mexico": GREEN, "Moldova": YELLOW, "Mongolia": PINK,
-    "Montenegro": PINK, "Morocco": BLUE, "Mozambique": YELLOW, "Myanmar": PINK, "Namibia": BLUE, "Nepal": PINK,
-    "Netherlands": BLUE, "New Zealand": GREEN, "Nicaragua": PINK, "Niger": BLUE, "Nigeria": PINK,
-    "North Korea": PINK, "North Macedonia": PINK, "Northern Cyprus": GREEN, "Norway": GREEN, "Oman": PINK,
-    "Pakistan": BLUE, "Palestine": GREEN, "Panama": NAVY, "Papua New Guinea": YELLOW, "Paraguay": NAVY,
-    "Peru": YELLOW, "Philippines": BLUE, "Poland": PINK, "Portugal": PURPLE, "Puerto Rico": YELLOW,
-    "Qatar": YELLOW, "Romania": PINK, "Russia": YELLOW, "Rwanda": YELLOW, "Sao Tome and Principe": YELLOW,
-    "Saudi Arabia": GREEN, "Senegal": YELLOW, "Serbia": BLUE, "Seychelles": PINK,
-    "Sierra Leone": GREEN, "Singapore": YELLOW, "Slovakia": YELLOW, "Slovenia": PINK, "Somalia": GREEN,
-    "Somaliland": PINK, "South Africa": PINK, "South Sudan": BLUE, "Spain": BLUE, "Sri Lanka": PINK,
-    "Sudan": PINK, "Suriname": PINK, "Sweden": PURPLE, "Switzerland": GREEN, "Syria": GREEN, "Taiwan": PINK,
-    "Tajikistan": PINK, "Tanzania": BLUE, "Thailand": YELLOW, "Togo": PINK, "Trinidad and Tobago": PINK,
-    "Tunisia": GREEN, "Turkey": NAVY, "Turkmenistan": PINK, "UAE": YELLOW, "Uganda": PINK, "UK": YELLOW,
-    "Ukraine": BLUE, "Uruguay": NAVY, "USA": YELLOW, "Uzbekistan": PURPLE, "Venezuela": BLUE, "Vietnam": PINK,
-    "Western Sahara": YELLOW, "Yemen": GREEN, "Zambia": PINK, "Zimbabwe": YELLOW
+    "Afghanistan": GREEN, "Albania": BLUE, "Algeria": GREEN, "Andorra": PINK, "Angola": PINK, "Argentina": PINK,
+    "Armenia": PINK, "Australia": YELLOW, "Austria": YELLOW, "Azerbaijan": YELLOW, "Bahamas": PURPLE, "Bahrain": BLUE,
+    "Bangladesh": ORANGE, "Belarus": PURPLE, "Belgium": BLUE, "Belize": GREEN, "Benin": PINK, "Bermuda": ORANGE, "Bhutan": BLUE,
+    "Bolivia": YELLOW, "Bosnia and Herz.": GREEN, "Botswana": YELLOW, "Brazil": GREEN, "Brunei": YELLOW, "Bulgaria": PURPLE,
+    "Burkina Faso": GREEN, "Burundi": BLUE, "Cambodia": PURPLE, "Cameroon": YELLOW, "Canada": PURPLE, "Cape Verde": ORANGE,
+    "Central African Republic": GREEN, "Chad": PURPLE, "Chile": BLUE, "China": ORANGE, "Colombia": PURPLE, "Comoros": YELLOW,
+    "Republic of the Congo": ORANGE, "Costa Rica": PINK, "Croatia": PINK, "Cuba": PINK, "Cyprus": BLUE, "Czechia": PINK,
+    "Denmark": PURPLE, "Djibouti": BLUE, "Dominican Republic": BLUE, "Democratic Republic of the Congo": PURPLE,
+    "East Timor": YELLOW, "Ecuador": ORANGE, "Egypt": PINK, "El Salvador": BLUE, "Equatorial Guinea": ORANGE,
+    "Eritrea": GREEN, "Estonia": PINK, "Eswatini": GREEN, "Ethiopia": YELLOW, "Fiji": YELLOW, "Finland": GREEN,
+    "France": PINK, "Gabon": PINK, "Gambia": GREEN, "Georgia": GREEN, "Germany": ORANGE, "Ghana": YELLOW,
+    "Greece": ORANGE, "Greenland": BLUE, "Guatemala": YELLOW, "Guinea": BLUE, "Guinea-Bissau": PINK, "Guyana": BLUE,
+    "Haiti": GREEN, "Honduras": PURPLE, "Hong Kong": PINK, "Hungary": GREEN, "Iceland": ORANGE, "India": PURPLE,
+    "Indonesia": PINK, "Iran": BLUE, "Iraq": PURPLE, "Ireland": YELLOW, "Israel": YELLOW, "Italy": BLUE,
+    "Ivory Coast": PINK, "Jamaica": YELLOW, "Japan": PURPLE, "Jordan": PINK, "Kazakhstan": PURPLE, "Kenya": ORANGE,
+    "South Korea": PINK, "Kosovo": PINK, "Kuwait": PINK, "Kyrgyzstan": GREEN, "Laos": BLUE, "Latvia": YELLOW,
+    "Lebanon": PINK, "Lesotho": GREEN, "Liberia": ORANGE, "Libya": YELLOW, "Liechtenstein": GREEN, "Lithuania": GREEN,
+    "Luxembourg": YELLOW, "Madagascar": ORANGE, "Malawi": BLUE, "Malaysia": GREEN, "Maldives": ORANGE, "Mali": ORANGE,
+    "Malta": ORANGE, "Mauritania": PINK, "Mauritius": PURPLE, "Mexico": PINK, "Moldova": PINK, "Mongolia": PINK,
+    "Montenegro": YELLOW, "Morocco": BLUE, "Mozambique": PURPLE, "Myanmar": PINK, "Namibia": GREEN, "Nepal": PINK,
+    "Netherlands": GREEN, "New Zealand": GREEN, "Nicaragua": ORANGE, "Niger": BLUE, "Nigeria": GREEN, "North Korea": YELLOW,
+    "North Macedonia": GREEN, "Northern Cyprus": YELLOW, "Norway": PINK, "Oman": YELLOW, "Pakistan": YELLOW,
+    "Palestine": GREEN, "Panama": YELLOW, "Papua New Guinea": PURPLE, "Paraguay": ORANGE, "Peru": BLUE, "Philippines": YELLOW,
+    "Poland": YELLOW, "Portugal": GREEN, "Puerto Rico": PURPLE, "Qatar": BLUE, "Romania": BLUE, "Russia": BLUE,
+    "Rwanda": GREEN, "Sao Tome and Principe": BLUE, "Saudi Arabia": ORANGE, "Senegal": YELLOW, "Serbia": ORANGE,
+    "Seychelles": ORANGE, "Sierra Leone": PURPLE, "Singapore": PURPLE, "Slovakia": PURPLE, "Slovenia": BLUE,
+    "Somalia": PURPLE, "Somaliland": BLUE, "South Africa": PINK, "South Sudan": PINK, "Spain": YELLOW, "Sri Lanka": BLUE,
+    "Sudan": ORANGE, "Suriname": YELLOW, "Sweden": YELLOW, "Switzerland": GREEN, "Syria": BLUE, "Taiwan": PURPLE,
+    "Tajikistan": BLUE, "Tanzania": PINK, "Thailand": ORANGE, "Togo": GREEN, "Trinidad and Tobago": ORANGE,
+    "Tunisia": PURPLE, "Turkey": PINK, "Turkmenistan": YELLOW, "UAE": GREEN, "Uganda": YELLOW, "UK": PURPLE,
+    "Ukraine": ORANGE, "Uruguay": YELLOW, "USA": ORANGE, "Uzbekistan": PINK, "Venezuela": PINK, "Vietnam": GREEN,
+    "Western Sahara": GREEN, "Yemen": PINK, "Zambia": ORANGE, "Zimbabwe": GREEN
 };
 
 export const getCountryColor = (name) => countryColorMapping[name] || "#f8fafc";

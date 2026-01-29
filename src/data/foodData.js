@@ -13,6 +13,7 @@ import { bahrain } from "./countries/bahrain";
 import { bangladesh } from "./countries/bangladesh";
 import { belarus } from "./countries/belarus";
 import { belgium } from "./countries/belgium";
+import { belize } from "./countries/belize";
 import { benin } from "./countries/benin";
 import { bermuda } from "./countries/bermuda";
 import { bhutan } from "./countries/bhutan";
@@ -198,6 +199,7 @@ export const foodData = {
   "Bangladesh": bangladesh,
   "Belarus": belarus,
   "Belgium": belgium,
+  "Belize": belize,
   "Benin": benin,
   "Bermuda": bermuda,
   "Bhutan": bhutan,
