@@ -312,7 +312,7 @@ const App = () => {
         style={{ 
           zIndex: 10,
           transform: (!isMobile && selectedCountry) ? "translateX(-350px)" : "translateX(0)",
-          transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
+          transition: "transform 0.3s ease-out"
         }}
       >
         <button
