@@ -188,10 +188,10 @@ const App = () => {
       if (targetGeo) {
         const centroid = geoCentroid(targetGeo);
         setAnimationMode("slow");
-        setPosition({
+        setPosition(pos => ({
           coordinates: centroid,
-          zoom: 4
-        });
+          zoom: Math.max(pos.zoom, 4)
+        }));
         setTimeout(() => setAnimationMode(null), 500);
       }
     }
@@ -205,10 +205,10 @@ const App = () => {
       setSelectedCountry(countryName);
       if (centroid) {
         setAnimationMode("slow");
-        setPosition({
+        setPosition(pos => ({
           coordinates: centroid,
-          zoom: 4
-        });
+          zoom: Math.max(pos.zoom, 4)
+        }));
         setTimeout(() => setAnimationMode(null), 500);
       }
     } else {

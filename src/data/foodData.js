@@ -99,6 +99,7 @@ import { libya } from "./countries/libya";
 import { liechtenstein } from "./countries/liechtenstein";
 import { lithuania } from "./countries/lithuania";
 import { luxembourg } from "./countries/luxembourg";
+import { macau } from "./countries/macau";
 import { madagascar } from "./countries/madagascar";
 import { malawi } from "./countries/malawi";
 import { malaysia } from "./countries/malaysia";
@@ -285,6 +286,7 @@ export const foodData = {
   "Liechtenstein": liechtenstein,
   "Lithuania": lithuania,
   "Luxembourg": luxembourg,
+  "Macau": macau,
   "Madagascar": madagascar,
   "Malawi": malawi,
   "Malaysia": malaysia,

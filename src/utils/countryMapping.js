@@ -23,7 +23,8 @@ export const geoNameMap = {
     "Falkland Is.": "Falkland Islands",
     "Timor-Leste": "East Timor",
     "Cabo Verde": "Cape Verde",
-    "N. Cyprus": "Northern Cyprus"
+    "N. Cyprus": "Northern Cyprus",
+    "Macao": "Macau"
 };
 
 export const mapGeoName = (name) => geoNameMap[name] || name;
@@ -47,7 +48,7 @@ export const countryCodeMapping = {
     "Ivory Coast": "ci", "Jamaica": "jm", "Japan": "jp", "Jordan": "jo", "Kazakhstan": "kz", "Kenya": "ke",
     "South Korea": "kr", "Kosovo": "xk", "Kuwait": "kw", "Kyrgyzstan": "kg", "Laos": "la", "Latvia": "lv",
     "Lebanon": "lb", "Lesotho": "ls", "Liberia": "lr", "Libya": "ly", "Liechtenstein": "li", "Lithuania": "lt",
-    "Luxembourg": "lu", "Madagascar": "mg", "Malawi": "mw", "Malaysia": "my", "Maldives": "mv", "Mali": "ml",
+    "Luxembourg": "lu", "Macau": "mo", "Madagascar": "mg", "Malawi": "mw", "Malaysia": "my", "Maldives": "mv", "Mali": "ml",
     "Malta": "mt", "Mauritania": "mr", "Mauritius": "mu", "Mexico": "mx", "Moldova": "md", "Mongolia": "mn",
     "Montenegro": "me", "Morocco": "ma", "Mozambique": "mz", "Myanmar": "mm", "Namibia": "na", "Nepal": "np",
     "Netherlands": "nl", "New Zealand": "nz", "Nicaragua": "ni", "Niger": "ne", "Nigeria": "ng", "North Korea": "kp",
@@ -91,7 +92,7 @@ export const countryColorMapping = {
     "Ivory Coast": PINK, "Jamaica": YELLOW, "Japan": PURPLE, "Jordan": PINK, "Kazakhstan": PURPLE, "Kenya": ORANGE,
     "South Korea": GREEN, "Kosovo": PINK, "Kuwait": PINK, "Kyrgyzstan": GREEN, "Laos": BLUE, "Latvia": YELLOW,
     "Lebanon": PINK, "Lesotho": GREEN, "Liberia": ORANGE, "Libya": YELLOW, "Liechtenstein": PURPLE, "Lithuania": GREEN,
-    "Luxembourg": YELLOW, "Madagascar": ORANGE, "Malawi": BLUE, "Malaysia": BLUE, "Maldives": ORANGE, "Mali": ORANGE,
+    "Luxembourg": YELLOW, "Macau": GREEN, "Madagascar": ORANGE, "Malawi": BLUE, "Malaysia": BLUE, "Maldives": ORANGE, "Mali": ORANGE,
     "Malta": PINK, "Mauritania": PINK, "Mauritius": PURPLE, "Mexico": BLUE, "Moldova": PINK, "Mongolia": PINK,
     "Montenegro": YELLOW, "Morocco": BLUE, "Mozambique": PURPLE, "Myanmar": PINK, "Namibia": BLUE, "Nepal": PINK,
     "Netherlands": GREEN, "New Zealand": GREEN, "Nicaragua": ORANGE, "Niger": BLUE, "Nigeria": GREEN, "North Korea": YELLOW,
