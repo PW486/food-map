@@ -90,6 +90,18 @@ const MapLayer = ({
   const labelFontSize = baseFontSize / Math.pow(position.zoom, 0.8);
 
   const getLabelStyle = (theme, labelFontSize, darkMode) => ({
+    fontFamily: "system-ui, -apple-system, sans-serif",
+    fill: theme.TEXT,
+    paintOrder: "stroke",
+    stroke: darkMode ? "#000000" : "#ffffff",
+    strokeWidth: labelFontSize / 5,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    pointerEvents: "auto",
+    cursor: "pointer",
+    fontWeight: 600,
+    opacity: 0.9
+  });
 
   return (
     <div 
