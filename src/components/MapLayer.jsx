@@ -49,13 +49,13 @@ const getLabelVisibilityThreshold = (countryName, isMobile) => {
   const baseMinZoom = LABEL_MIN_ZOOM[countryName] || 4.5;
   if (!isMobile) return baseMinZoom;
 
-  // Staggered offsets for mobile to spread pop-ins gradually
-  let offset = 4.5;
-  if (baseMinZoom <= 1.5) offset = 1.0;
-  else if (baseMinZoom <= 2.8) offset = 2.5;
-  else if (baseMinZoom <= 4.2) offset = 3.5;
+  // Tier 1 & 1.5 (Russia, USA, UK, France, Germany, etc.): Always visible at start
+  if (baseMinZoom <= 1.5) return 4.0;
 
-  return baseMinZoom + offset;
+  // Tier 2+ (Spain, Italy, Poland, etc.): Spread out even faster
+  // Tier 2 (base 2.5) -> Shows at 4.0 + (1.0 * 2.0) = 6.0
+  // Tier 3 (base 3.5) -> Shows at 4.0 + (2.0 * 2.0) = 8.0
+  return 4.0 + (baseMinZoom - 1.5) * 2.0;
 };
 
 const MapLayer = ({ 
@@ -78,10 +78,10 @@ const MapLayer = ({
     return width < 600 ? (width / 6.5) : 150;
   }, [width]);
 
-  // Calculate dynamic font size to keep visual size relatively constant
-  // Reduced base size to prevent overlapping (PC: 5.0, Mobile: 3.5)
-  const baseFontSize = isMobile ? 3.5 : 5.0;
-  const labelFontSize = Math.max(0.5, baseFontSize / Math.sqrt(position.zoom)); 
+  // Calculate dynamic font size to keep visual size relatively constant but slightly increasing
+  // Using power 0.8 makes visual size proportional to zoom^0.2 (slight growth)
+  const baseFontSize = isMobile ? 8.0 : 10.0;
+  const labelFontSize = baseFontSize / Math.pow(position.zoom, 0.8); 
 
   return (
     <div 

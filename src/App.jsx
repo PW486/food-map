@@ -201,7 +201,7 @@ const App = () => {
         setAnimationMode("slow");
         setPosition(pos => ({
           coordinates: centroid,
-          zoom: targetZoom
+          zoom: Math.max(pos.zoom, targetZoom)
         }));
         setTimeout(() => setAnimationMode(null), 500);
       }
@@ -220,7 +220,7 @@ const App = () => {
         setAnimationMode("slow");
         setPosition(pos => ({
           coordinates: centroid,
-          zoom: targetZoom
+          zoom: Math.max(pos.zoom, targetZoom)
         }));
         setTimeout(() => setAnimationMode(null), 500);
       }

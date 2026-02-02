@@ -148,15 +148,17 @@ export const LABEL_MIN_ZOOM = {
     "Syria": 5.2, "Jordan": 5.5, "Azerbaijan": 5.5, "Georgia": 5.5, "Armenia": 5.8, 
     "Taiwan": 5.5, "Cambodia": 5.5, "Laos": 5.5, "Sri Lanka": 5.5, "Nepal": 5.5, 
     "Uruguay": 5.2, "Ecuador": 5.2, "Cuba": 4.8, "Ghana": 5.2, "Ivory Coast": 5.2, "Senegal": 5.2,
+    "Serbia": 5.8, // Promoted from Tier 6
 
     // TIER 5: EUROPEAN CORE & MIDDLE EAST (Zoom 6.2 - 6.8)
     "Netherlands": 6.2, "Switzerland": 6.2, "Austria": 6.2, "Belgium": 6.5, "Czechia": 6.5, 
     "Slovakia": 6.5, "Hungary": 6.5, "Israel": 6.2, "Palestine": 6.2, "Lebanon": 6.5, 
     "Cyprus": 6.8, "Tunisia": 4.8, "Estonia": 5.5, "Latvia": 5.8, "Lithuania": 6.2,
+    "Croatia": 6.0, "Albania": 6.8, // Promoted from Tier 6
 
     // TIER 6: HIGH-DENSITY REGIONS (Zoom 7.2 - 7.8)
-    "Serbia": 7.2, "Croatia": 7.2, "Slovenia": 7.5, "Bosnia and Herzegovina": 7.5,
-    "Montenegro": 7.8, "Albania": 7.8, "North Macedonia": 7.8, "Kosovo": 7.8,
+    "Slovenia": 7.0, "North Macedonia": 7.2, "Bosnia and Herzegovina": 7.5,
+    "Montenegro": 7.8, "Kosovo": 8.0,
     "Costa Rica": 7.2, "Panama": 7.2, "Honduras": 7.5, "Guatemala": 7.5, "Nicaragua": 7.5, 
     "El Salvador": 7.8, "Jamaica": 7.5, "Haiti": 7.8, "Dominican Republic": 7.8,
 
