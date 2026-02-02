@@ -53,9 +53,9 @@ const getLabelVisibilityThreshold = (countryName, isMobile) => {
   const baseMinZoom = LABEL_MIN_ZOOM[countryName] || 4.5;
   if (!isMobile) return baseMinZoom;
 
-  // Tier 1 & 1.5 (Major Anchors): Visible even at lower zooms (zoomed out)
-  // Allows visibility down to zoom 2.5 (below initial zoom of 4.0)
-  if (baseMinZoom <= 1.5) return 2.5;
+  // Tier 1 & 1.5 (Major Anchors): Always visible regardless of zoom
+  // Allows visibility at minimum zoom (1.0)
+  if (baseMinZoom <= 1.5) return 1.0;
 
   // Tier 2+ (Secondary): Spread out aggressively as user zooms in
   // Formula: InitialZoom + (TierOffset * SpreadFactor)
