@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import ZoomControls from "./components/ZoomControls";
 import Sidebar from "./components/Sidebar";
 import MapLayer from "./components/MapLayer";
-import { mapGeoName } from "./utils/countryMapping";
+import { mapGeoName, LABEL_MIN_ZOOM } from "./utils/countryMapping";
 import "./App.css";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json";
@@ -178,6 +178,15 @@ const App = () => {
 
   const handleMoveEnd = (newPosition) => setPosition(newPosition);
 
+  const calculateTargetZoom = (countryName) => {
+    const baseMinZoom = LABEL_MIN_ZOOM[countryName] || 4.5;
+    if (isMobile) {
+      const offset = baseMinZoom <= 1.5 ? 4.0 : 7.0;
+      return Math.max(baseMinZoom + offset, 9.0);
+    }
+    return Math.max(baseMinZoom + 3.0, 5.0);
+  };
+
   const handleCountrySelect = (countryName) => {
     setSelectedCountry(countryName);
     setIsSearchActive(false);
@@ -187,10 +196,12 @@ const App = () => {
       const targetGeo = geographies.find(geo => mapGeoName(geo.properties.name) === countryName);
       if (targetGeo) {
         const centroid = geoCentroid(targetGeo);
+        const targetZoom = calculateTargetZoom(countryName);
+
         setAnimationMode("slow");
         setPosition(pos => ({
           coordinates: centroid,
-          zoom: Math.max(pos.zoom, 4)
+          zoom: targetZoom
         }));
         setTimeout(() => setAnimationMode(null), 500);
       }
@@ -204,10 +215,12 @@ const App = () => {
     if (foodData[countryName]) {
       setSelectedCountry(countryName);
       if (centroid) {
+        const targetZoom = calculateTargetZoom(countryName);
+
         setAnimationMode("slow");
         setPosition(pos => ({
           coordinates: centroid,
-          zoom: Math.max(pos.zoom, 4)
+          zoom: targetZoom
         }));
         setTimeout(() => setAnimationMode(null), 500);
       }

@@ -15,15 +15,16 @@ const getGeographyStyle = ({ isMobile, isSelected, isHovered, hasData, theme, fi
     transition: "all 0.3s ease",
   };
 
-  // Apply hover effect even if the mouse is on the label
-  const activeFilter = hasData && !isMobile && isHovered ? "brightness(0.9)" : "none";
+  // Use the same darken filter for both hover and selected states
+  const shouldHighlight = hasData && !isMobile && (isHovered || isSelected);
+  const filter = shouldHighlight ? "brightness(0.9)" : "none";
 
   return {
     default: {
       ...baseStyle,
       fill: fillColor,
       stroke: theme.STROKE,
-      filter: activeFilter,
+      filter: filter,
       opacity: 1,
     },
     hover: {
@@ -41,6 +42,20 @@ const getGeographyStyle = ({ isMobile, isSelected, isHovered, hasData, theme, fi
       opacity: 1,
     },
   };
+};
+
+// Helper to determine minimum zoom threshold for a country's label
+const getLabelVisibilityThreshold = (countryName, isMobile) => {
+  const baseMinZoom = LABEL_MIN_ZOOM[countryName] || 4.5;
+  if (!isMobile) return baseMinZoom;
+
+  // Staggered offsets for mobile to spread pop-ins gradually
+  let offset = 4.5;
+  if (baseMinZoom <= 1.5) offset = 1.0;
+  else if (baseMinZoom <= 2.8) offset = 2.5;
+  else if (baseMinZoom <= 4.2) offset = 3.5;
+
+  return baseMinZoom + offset;
 };
 
 const MapLayer = ({ 
@@ -64,7 +79,9 @@ const MapLayer = ({
   }, [width]);
 
   // Calculate dynamic font size to keep visual size relatively constant
-  const labelFontSize = Math.max(0.5, 6 / Math.sqrt(position.zoom)); 
+  // Reduced base size to prevent overlapping (PC: 5.0, Mobile: 3.5)
+  const baseFontSize = isMobile ? 3.5 : 5.0;
+  const labelFontSize = Math.max(0.5, baseFontSize / Math.sqrt(position.zoom)); 
 
   return (
     <div 
@@ -144,8 +161,8 @@ const MapLayer = ({
                   if (!hasData) return null;
 
                   // Zoom-based Label Filtering
-                  const minZoom = LABEL_MIN_ZOOM[geoName] || 4.5;
-                  if (position.zoom < minZoom) return null;
+                  const visibilityThreshold = getLabelVisibilityThreshold(geoName, isMobile);
+                  if (position.zoom < visibilityThreshold) return null;
 
                   // Use manual centroid if defined
                   const centroid = MANUAL_CENTROIDS[geoName] || geoCentroid(geo);

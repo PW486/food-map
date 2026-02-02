@@ -1,4 +1,4 @@
-// Centralized name mapping: GeoJSON names -> Our Data Keys
+// Name mapping: GeoJSON names -> Standardized keys used in foodData
 export const geoNameMap = {
     "United States of America": "United States",
     "United Arab Emirates": "UAE",
@@ -30,7 +30,7 @@ export const geoNameMap = {
 
 export const mapGeoName = (name) => geoNameMap[name] || name;
 
-// ISO 2-letter codes for FlagCDN
+// ISO 2-letter codes for FlagCDN icons
 export const countryCodeMapping = {
     "Afghanistan": "af", "Albania": "al", "Algeria": "dz", "Andorra": "ad", "Angola": "ao", "Argentina": "ar",
     "Armenia": "am", "Australia": "au", "Austria": "at", "Azerbaijan": "az", "Bahamas": "bs", "Bahrain": "bh",
@@ -68,24 +68,24 @@ export const countryCodeMapping = {
 
 export const getCountryCode = (name) => countryCodeMapping[name] || null;
 
-// Unified Theme Colors
+// Theme-based Color Palettes (Google Maps aesthetic)
 export const MAP_COLORS = {
     LIGHT: {
-        OCEAN: "#aadaff",      // Google Maps Day Water
+        OCEAN: "#aadaff",
         LAND_DEFAULT: "#f5f5f5",
-        LAND_TEMPERATE: "#aed581",  // Light Green
-        LAND_DESERT: "#faeed1",     // Sandy Beige
-        LAND_COLD: "#e1f5fe",       // Icy Pale Blue
+        LAND_TEMPERATE: "#aed581",
+        LAND_DESERT: "#faeed1",
+        LAND_COLD: "#e1f5fe",
         STROKE: "#ffffff",
         TEXT: "#374151"
     },
     DARK: {
-        OCEAN: "#1a1c2c",      // Deep Midnight Water
+        OCEAN: "#1a1c2c",
         LAND_DEFAULT: "#242424",
-        LAND_TEMPERATE: "#1b3a20",  // Dark Forest Green
-        LAND_DESERT: "#4a3728",     // Dark Warm Sand
-        LAND_COLD: "#2c3e50",       // Midnight Cold Slate
-        STROKE: "#666666",          // Brighter stroke for visibility
+        LAND_TEMPERATE: "#1b3a20",
+        LAND_DESERT: "#4a3728",
+        LAND_COLD: "#2c3e50",
+        STROKE: "#666666",
         TEXT: "#ffffff"
     }
 };
@@ -110,57 +110,59 @@ export const getClimateType = (name) => {
     return "TEMPERATE";
 };
 
-// Deprecated: Logic moved to MapLayer
-export const getCountryColor = (name) => MAP_COLORS.LIGHT.LAND_TEMPERATE;
-
-// Manual Centroid Overrides for countries where the calculated center is skewed by territories
+// Custom centroid overrides for better label placement on fragmented territories
 export const MANUAL_CENTROIDS = {
     "France": [2.2137, 46.6033],
-    "United States": [-98.5795, 39.8283], // Center of Contiguous US
+    "United States": [-98.5795, 39.8283],
     "Norway": [8.4689, 61.4720],
     "Netherlands": [5.2913, 52.1326],
-    "United Kingdom": [-3.4360, 54.5], // Slightly lower to center visually on Great Britain
+    "United Kingdom": [-3.4360, 54.5],
     "Spain": [-3.7492, 40.0],
     "Portugal": [-8.0, 39.5],
-    "Malaysia": [109.0, 4.0], // Visual center between West and East Malaysia
-    "Indonesia": [113.9213, -0.7893], // Borneo/Java visual center
-    "Japan": [138.2529, 36.2048] // Honshu center
+    "Malaysia": [109.0, 4.0],
+    "Indonesia": [113.9213, -0.7893],
+    "Japan": [138.2529, 36.2048]
 };
 
-// Minimum Zoom Level to show label (to prevent overlapping)
-// Hierarchical visibility based on spatial density and size
+// Hierarchical zoom levels for label visibility to prevent spatial clutter
 export const LABEL_MIN_ZOOM = {
-    // LEVEL 1: GLOBAL GIANTS (Always visible)
+    // TIER 1: GLOBAL GIANTS & PRIMARY ANCHORS (Zoom 1.0 - 1.5)
     "Russia": 1, "Canada": 1, "United States": 1, "China": 1, "Brazil": 1, "Australia": 1, 
-    "India": 1, "Greenland": 1, "Antarctica": 1,
+    "India": 1, "Greenland": 1, "South Korea": 1.2, "Japan": 1.2, "United Kingdom": 1.5, 
+    "France": 1.5, "Germany": 1.5, "Mexico": 1.5, "Indonesia": 1.5, "Turkey": 1.5, 
+    "Argentina": 1.5, "South Africa": 1.5, "Egypt": 1.5,
 
-    // LEVEL 1.8 - 2: REGIONAL ANCHORS (Visible early)
-    "South Korea": 1.8, "Japan": 1.8, "United Kingdom": 1.8, "France": 1.8, "Germany": 1.8, 
-    "Mexico": 1.8, "Indonesia": 1.8, "Turkey": 1.8, "Argentina": 1.8, "South Africa": 1.8, 
-    "Nigeria": 1.8, "Algeria": 2, "Kazakhstan": 2, "Saudi Arabia": 2, "Iran": 2, 
-    "Mongolia": 2, "Peru": 2, "Sudan": 2, "DRC": 2, "Libya": 2,
+    // TIER 2: SECONDARY ANCHORS (Zoom 2.5)
+    "Algeria": 2.5, "Kazakhstan": 2.5, "Saudi Arabia": 2.5, "Iran": 2.5, "Mongolia": 2.5, 
+    "Peru": 2.5, "Sudan": 2.5, "DRC": 2.5, "Libya": 2.5, "Nigeria": 2.5, "Thailand": 2.5,
+    "Vietnam": 2.5, "Ukraine": 2.5, "Poland": 2.5, "Italy": 2.5, "Spain": 2.5, "Colombia": 2.5,
 
-    // LEVEL 3.5: MID-SIZED COUNTRIES (Enough clearance)
-    "Italy": 3.5, "Spain": 3.5, "Poland": 3.5, "Ukraine": 3.5, "Thailand": 3.5, "Vietnam": 3.5, 
-    "Egypt": 3.5, "Morocco": 3.5, "Colombia": 3.5, "Chile": 3.5, "Pakistan": 3.5, "Sweden": 3.5, 
-    "Norway": 3.5, "Finland": 3.5, "Romania": 3.5, "Myanmar": 3.5, "Ethiopia": 3.5, 
-    "Tanzania": 3.5, "Kenya": 3.5, "Zambia": 3.5, "Angola": 3.5, "Venezuela": 3.5, 
-    "Bolivia": 3.5, "Paraguay": 3.5, "Uzbekistan": 3.5, "Afghanistan": 3.5,
+    // TIER 3: REGIONAL DETAILS (Zoom 3.5 - 4.2)
+    "Chile": 3.5, "Pakistan": 3.5, "Sweden": 3.5, "Norway": 4.0, "Finland": 4.0, "Romania": 4.0, 
+    "Myanmar": 3.5, "Ethiopia": 3.5, "Tanzania": 3.5, "Kenya": 3.5, "Zambia": 4.0, 
+    "Angola": 4.0, "Venezuela": 4.0, "Bolivia": 4.0, "Uzbekistan": 4.0, "Afghanistan": 4.0,
+    "Iraq": 4.2, "Malaysia": 3.8, "Philippines": 3.8, "Morocco": 3.8,
 
-    // LEVEL 5 - 5.5: DENSE / SMALLER COUNTRIES (Need zoom to avoid overlap)
-    "Netherlands": 5.5, "Belgium": 5.5, "Switzerland": 5.5, "Austria": 5.5, "Czechia": 5.5, 
-    "Slovakia": 5.5, "Hungary": 5.5, "Portugal": 5, "Greece": 5, "Ireland": 5, "Denmark": 5, 
-    "Bulgaria": 5, "Serbia": 5.5, "Croatia": 5.5, "Slovenia": 5.5, "Bosnia and Herzegovina": 5.5,
-    "Somaliland": 5, "Jordan": 5, "Syria": 5, "Iraq": 5, "Azerbaijan": 5, "Georgia": 5, 
-    "Armenia": 5, "Israel": 5, "Palestine": 5, "Lebanon": 5, "Taiwan": 5, "Philippines": 4.5, 
-    "Malaysia": 4.5, "Cambodia": 5, "Laos": 5, "Sri Lanka": 5, "Nepal": 5, "Bhutan": 5,
-    "Uruguay": 5, "Ecuador": 5, "Guyana": 5, "Suriname": 5, "Costa Rica": 5.5, "Panama": 5.5, 
-    "Honduras": 5.5, "Guatemala": 5.5, "Nicaragua": 5.5, "El Salvador": 5.5, "Jamaica": 5.5, 
-    "Cuba": 5, "Haiti": 5.5, "Dominican Republic": 5.5,
+    // TIER 4: DENSE REGIONS STAGE 1 (Zoom 4.8 - 5.5)
+    "Portugal": 4.8, "Greece": 4.8, "Ireland": 5.2, "Denmark": 5.2, "Bulgaria": 5.2, 
+    "Syria": 5.2, "Jordan": 5.5, "Azerbaijan": 5.5, "Georgia": 5.5, "Armenia": 5.8, 
+    "Taiwan": 5.5, "Cambodia": 5.5, "Laos": 5.5, "Sri Lanka": 5.5, "Nepal": 5.5, 
+    "Uruguay": 5.2, "Ecuador": 5.2, "Cuba": 4.8, "Ghana": 5.2, "Ivory Coast": 5.2, "Senegal": 5.2,
 
-    // LEVEL 7.5+: MICROSTATES & TINY ISLANDS
-    "Singapore": 7.5, "Hong Kong": 6.5, "Macau": 7.5, "Liechtenstein": 8, "Andorra": 8, 
-    "Monaco": 9, "San Marino": 9, "Vatican City": 9, "Luxembourg": 6.5, "Malta": 7.5, 
-    "Bahrain": 7.5, "Qatar": 6.5, "UAE": 5, "Kuwait": 6.5, "Brunei": 6.5, "Maldives": 8, 
-    "Seychelles": 8, "Mauritius": 7.5, "Trinidad and Tobago": 7, "Cape Verde": 7
+    // TIER 5: EUROPEAN CORE & MIDDLE EAST (Zoom 6.2 - 6.8)
+    "Netherlands": 6.2, "Switzerland": 6.2, "Austria": 6.2, "Belgium": 6.5, "Czechia": 6.5, 
+    "Slovakia": 6.5, "Hungary": 6.5, "Israel": 6.2, "Palestine": 6.2, "Lebanon": 6.5, 
+    "Cyprus": 6.8, "Tunisia": 4.8, "Estonia": 5.5, "Latvia": 5.8, "Lithuania": 6.2,
+
+    // TIER 6: HIGH-DENSITY REGIONS (Zoom 7.2 - 7.8)
+    "Serbia": 7.2, "Croatia": 7.2, "Slovenia": 7.5, "Bosnia and Herzegovina": 7.5,
+    "Montenegro": 7.8, "Albania": 7.8, "North Macedonia": 7.8, "Kosovo": 7.8,
+    "Costa Rica": 7.2, "Panama": 7.2, "Honduras": 7.5, "Guatemala": 7.5, "Nicaragua": 7.5, 
+    "El Salvador": 7.8, "Jamaica": 7.5, "Haiti": 7.8, "Dominican Republic": 7.8,
+
+    // TIER 7+: MICROSTATES & SMALL ISLANDS (Zoom 8.5+)
+    "Singapore": 8.5, "Hong Kong": 7.5, "Macau": 8.5, "Liechtenstein": 9.5, "Andorra": 9.5, 
+    "Monaco": 10.5, "San Marino": 10.5, "Vatican City": 11, "Luxembourg": 7.2, "Malta": 8.5, 
+    "Bahrain": 8.5, "Qatar": 7.5, "Kuwait": 7.5, "Brunei": 8.0, "Maldives": 9.5, 
+    "Seychelles": 9.5, "Mauritius": 9.0, "Trinidad and Tobago": 7.5, "Cape Verde": 8.0
 };
