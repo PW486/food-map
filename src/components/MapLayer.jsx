@@ -144,7 +144,6 @@ const MapLayer = ({
                           />
                         )}
                         <text
-                          dy="0.33em"
                           fontSize={labelFontSize}
                           textAnchor="middle"
                           onMouseEnter={() => !isMobile && (setTooltipContent(name), setHoveredCountry(name))}
@@ -152,7 +151,24 @@ const MapLayer = ({
                           onClick={(e) => (e.stopPropagation(), handleCountryClick(geo, centroid))}
                           style={labelStyle}
                         >
-                          {name}
+                          {(() => {
+                            const words = name.split(" ");
+                            const isMultiLine = words.length > 1 && (name.length > 15 || words.length > 2);
+                            
+                            if (!isMultiLine) {
+                              return <tspan dy="0.33em">{name}</tspan>;
+                            }
+
+                            return words.map((word, i) => (
+                              <tspan 
+                                key={i} 
+                                x="0" 
+                                dy={i === 0 ? `${0.33 - (words.length - 1) * 0.55}em` : "1.1em"}
+                              >
+                                {word}
+                              </tspan>
+                            ));
+                          })()}
                         </text>
                       </Marker>
                     );

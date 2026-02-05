@@ -121,50 +121,82 @@ export const MANUAL_CENTROIDS = {
     "Portugal": [-8.0, 39.5],
     "Malaysia": [109.0, 4.0],
     "Indonesia": [113.9213, -0.7893],
-    "Japan": [138.2529, 36.2048]
+    "Japan": [138.2529, 36.2048],
+    "Vietnam": [109.0, 16.0],
+    "Chile": [-72.5, -38.0],
+    "Peru": [-76.0, -9.0],
+    "South Africa": [24.0, -31.0],
+    "Croatia": [15.5, 45.5],
+    "Macau": [113.5, 22.15],
+    "Northern Cyprus": [33.5, 35.4],
+    "Jordan": [36.5, 31.0],
+    "Azerbaijan": [48.0, 40.5]
 };
 
-// Hierarchical zoom levels for label visibility to prevent spatial clutter
+// Hierarchical zoom levels for label visibility (1, 3, 5, 7, 9, 11, 13, 15)
+// Non-European countries promoted by -2 tiers (capped at Tier 1)
 export const LABEL_MIN_ZOOM = {
-    // TIER 1: GLOBAL GIANTS & PRIMARY ANCHORS (Zoom 1.0 - 1.5)
-    "Russia": 1, "Canada": 1, "United States": 1, "China": 1, "Brazil": 1, "Australia": 1, 
-    "India": 1, "Greenland": 1, "South Korea": 1.2, "Japan": 1.2, "United Kingdom": 1.5, 
-    "France": 1.5, "Germany": 1.5, "Mexico": 1.5, "Indonesia": 1.5, "Turkey": 1.5, 
-    "Argentina": 1.5, "South Africa": 1.5, "Egypt": 1.5,
+    // TIER 1: GLOBAL & PROMOTED ANCHORS
+    "Canada": 1, "United States": 1, "Mexico": 1, "Brazil": 1, "Argentina": 1, 
+    "Russia": 1, "China": 1, "India": 1, "Australia": 1, "South Africa": 1, 
+    "Egypt": 1, "Nigeria": 1, "United Kingdom": 1, "France": 1, "Germany": 1, 
+    "Japan": 1, "South Korea": 1, "Indonesia": 1, "Saudi Arabia": 1, "Turkey": 1, "Iran": 1,
+    "Ethiopia": 1, "DRC": 1, "Algeria": 1, "Kenya": 1, "Morocco": 1, "Thailand": 1, 
+    "Pakistan": 1, "Kazakhstan": 1, "Ukraine": 1, "Poland": 1, "Italy": 1, "Spain": 1, 
+    "Colombia": 1, "Peru": 1, "Chile": 1, "Greenland": 1, "Serbia": 1,
+    "Bolivia": 1, "Iceland": 1, "New Zealand": 1, "Sweden": 1, "Norway": 1, 
+    "Finland": 1, "Greece": 1, "Mongolia": 1, "Botswana": 1, "Madagascar": 1, "Philippines": 1,
+    // Promoted from Tier 3 (-2)
+    "Libya": 1, "Vietnam": 1, "Myanmar": 1, "Venezuela": 1, "Mali": 1, "Niger": 1, 
+    "Chad": 1, "Somalia": 1, "Sudan": 1, "Angola": 1, "Tanzania": 1, "Iraq": 1, 
+    "Afghanistan": 1, "Uzbekistan": 1, "Malaysia": 1,
 
-    // TIER 2: SECONDARY ANCHORS (Zoom 2.5)
-    "Algeria": 2.5, "Kazakhstan": 2.5, "Saudi Arabia": 2.5, "Iran": 2.5, "Mongolia": 2.5, 
-    "Peru": 2.5, "Sudan": 2.5, "DRC": 2.5, "Libya": 2.5, "Nigeria": 2.5, "Thailand": 2.5,
-    "Vietnam": 2.5, "Ukraine": 2.5, "Poland": 2.5, "Italy": 2.5, "Spain": 2.5, "Colombia": 2.5,
+    // TIER 3: REGIONAL PLAYERS (Europe maintained, others promoted)
+    "Romania": 3, "Belarus": 3,
+    // Promoted from Tier 5 (-2)
+    "Syria": 3, "Jordan": 3, "Yemen": 3, "Oman": 3, "Azerbaijan": 3, "Georgia": 3,
+    "Nepal": 3, "Bangladesh": 3, "Sri Lanka": 3, "Cambodia": 3, "Laos": 3, "North Korea": 3,
+    "Ecuador": 3, "Paraguay": 3, "Uruguay": 3, "Cuba": 3, "Ghana": 3, "Ivory Coast": 3, 
+    "Cameroon": 3, "Senegal": 3, "Tunisia": 3, "Uganda": 3, "Papua New Guinea": 3, 
+    "Zambia": 3, "Mozambique": 3, "Honduras": 3, "Costa Rica": 3, "Suriname": 3, "Fiji": 3, "East Timor": 3,
 
-    // TIER 3: REGIONAL DETAILS (Zoom 3.5 - 4.2)
-    "Chile": 3.5, "Pakistan": 3.5, "Sweden": 3.5, "Norway": 4.0, "Finland": 4.0, "Romania": 4.0, 
-    "Myanmar": 3.5, "Ethiopia": 3.5, "Tanzania": 3.5, "Kenya": 3.5, "Zambia": 4.0, 
-    "Angola": 4.0, "Venezuela": 4.0, "Bolivia": 4.0, "Uzbekistan": 4.0, "Afghanistan": 4.0,
-    "Iraq": 4.2, "Malaysia": 3.8, "Philippines": 3.8, "Morocco": 3.8,
+    // TIER 5: STANDARD COUNTRIES
+    "Portugal": 5, "Ireland": 5, "Czechia": 5, "Hungary": 5, "Austria": 5, "Switzerland": 5,
+    "Croatia": 5, "Bulgaria": 5,
+    // Promoted from Tier 7 (-2)
+    "Israel": 5, "Lebanon": 5, "Tajikistan": 5, "Kyrgyzstan": 5, 
+    "Taiwan": 5, "Nicaragua": 5, "Panama": 5, 
+    "Liberia": 5, "Sierra Leone": 5, "Benin": 5, "Togo": 5, 
+    "Eritrea": 5, "Djibouti": 5, "Malawi": 5, "Guatemala": 5, 
+    "Burkina Faso": 5, "Guinea": 5, "Hong Kong": 7,
 
-    // TIER 4: DENSE REGIONS STAGE 1 (Zoom 4.8 - 5.5)
-    "Portugal": 4.8, "Greece": 4.8, "Ireland": 5.2, "Denmark": 5.2, "Bulgaria": 5.2, 
-    "Syria": 5.2, "Jordan": 5.5, "Azerbaijan": 5.5, "Georgia": 5.5, "Armenia": 5.8, 
-    "Taiwan": 5.5, "Cambodia": 5.5, "Laos": 5.5, "Sri Lanka": 5.5, "Nepal": 5.5, 
-    "Uruguay": 5.2, "Ecuador": 5.2, "Cuba": 4.8, "Ghana": 5.2, "Ivory Coast": 5.2, "Senegal": 5.2,
-    "Serbia": 5.8, // Promoted from Tier 6
+    // TIER 7: DETAILED COUNTRIES (Europe maintained)
+    "Netherlands": 7, "Belgium": 7, "Denmark": 7, "Slovakia": 7, "Estonia": 7, 
+    "Latvia": 7, "Lithuania": 7, "Moldova": 7, "Bosnia and Herzegovina": 7,
+    // Promoted from Tier 9 (-2)
+    "Guyana": 7, "Gabon": 7, "Equatorial Guinea": 7, "Gambia": 7, 
+    "Guinea-Bissau": 7, "Rwanda": 7, "Burundi": 7, "Bhutan": 7,
+    "Solomon Islands": 7, "El Salvador": 7, "Belize": 7, "Namibia": 7, 
+    "Zimbabwe": 7,
 
-    // TIER 5: EUROPEAN CORE & MIDDLE EAST (Zoom 6.2 - 6.8)
-    "Netherlands": 6.2, "Switzerland": 6.2, "Austria": 6.2, "Belgium": 6.5, "Czechia": 6.5, 
-    "Slovakia": 6.5, "Hungary": 6.5, "Israel": 6.2, "Palestine": 6.2, "Lebanon": 6.5, 
-    "Cyprus": 6.8, "Tunisia": 4.8, "Estonia": 5.5, "Latvia": 5.8, "Lithuania": 6.2,
-    "Croatia": 6.0, "Albania": 6.8, // Promoted from Tier 6
+    // TIER 9: DENSE REGIONAL (Europe maintained)
+    "Albania": 9, "Dominican Republic": 9, "Haiti": 9, "Palestine": 9, "Armenia": 9,
+    // Promoted from Tier 11 (-2)
+    "Kuwait": 9, "Qatar": 9, "Jamaica": 9, "Lesotho": 9, "Eswatini": 9, 
+    "Trinidad and Tobago": 9, "Mauritius": 9,
 
-    // TIER 6: HIGH-DENSITY REGIONS (Zoom 7.2 - 7.8)
-    "Slovenia": 7.0, "North Macedonia": 7.2, "Bosnia and Herzegovina": 7.5,
-    "Montenegro": 7.8, "Kosovo": 8.0,
-    "Costa Rica": 7.2, "Panama": 7.2, "Honduras": 7.5, "Guatemala": 7.5, "Nicaragua": 7.5, 
-    "El Salvador": 7.8, "Jamaica": 7.5, "Haiti": 7.8, "Dominican Republic": 7.8,
+    // TIER 11: SMALL STATES
+    "Slovenia": 11, "Northern Cyprus": 11, "Cyprus": 11, // Kept conservative for overlap
+    // Promoted from Tier 13 (-2)
+    "Bahrain": 11, "Brunei": 11, "Cape Verde": 11,
 
-    // TIER 7+: MICROSTATES & SMALL ISLANDS (Zoom 8.5+)
-    "Singapore": 8.5, "Hong Kong": 7.5, "Macau": 8.5, "Liechtenstein": 9.5, "Andorra": 9.5, 
-    "Monaco": 10.5, "San Marino": 10.5, "Vatican City": 11, "Luxembourg": 7.2, "Malta": 8.5, 
-    "Bahrain": 8.5, "Qatar": 7.5, "Kuwait": 7.5, "Brunei": 8.0, "Maldives": 9.5, 
-    "Seychelles": 9.5, "Mauritius": 9.0, "Trinidad and Tobago": 7.5, "Cape Verde": 8.0
+    // TIER 13: MICRO/CITY STATES A
+    "North Macedonia": 13, "Luxembourg": 13,
+    // Promoted from Tier 15 (-2)
+    "Maldives": 13, "Seychelles": 13, "Comoros": 13, 
+    "Sao Tome and Principe": 13, "Barbados": 13, "Saint Lucia": 13,
+
+    // TIER 15: MICRO/CITY STATES B
+    "Montenegro": 15, "Kosovo": 15, "Liechtenstein": 15, "Andorra": 15, 
+    "Monaco": 15, "San Marino": 15, "Vatican City": 15, "Singapore": 15, "Malta": 15, "Macau": 15
 };
