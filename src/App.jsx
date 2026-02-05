@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import { Sun, Moon, Search, X } from "lucide-react";
 import { geoCentroid } from "d3-geo";
 import { foodData } from "./data/foodData";
@@ -29,7 +29,6 @@ const App = () => {
   const [animationMode, setAnimationMode] = useState(null);
   const [geographies, setGeographies] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
   const [isSearchActive, setIsSearchActive] = useState(false);
   const searchRef = useRef(null);
   const inputRef = useRef(null);
@@ -77,13 +76,12 @@ const App = () => {
     };
   }, []);
 
-  // Search Logic
-  useEffect(() => {
-    if (searchQuery.trim() === "") { setSearchResults([]); return; }
-    const filtered = Object.keys(foodData).filter(c => 
-      c.toLowerCase().includes(searchQuery.toLowerCase())
-    ).slice(0, 10);
-    setSearchResults(filtered);
+  // Optimized Search Logic
+  const searchResults = useMemo(() => {
+    if (!searchQuery.trim()) return [];
+    return Object.keys(foodData)
+      .filter(c => c.toLowerCase().includes(searchQuery.toLowerCase()))
+      .slice(0, 10);
   }, [searchQuery]);
 
   useEffect(() => {
@@ -105,6 +103,7 @@ const App = () => {
   const touchStartYRef = useRef(0);
   const initialZoomRef = useRef(1);
   const currentZoomRef = useRef(1);
+  const clickTimeoutRef = useRef(null);
 
   // Sync ref with state
   useEffect(() => {
@@ -131,11 +130,17 @@ const App = () => {
       const dist = Math.sqrt(dx*dx + dy*dy);
 
       if (deltaT > 0 && deltaT < 300 && dist < 40) {
+        // Double tap detected!
         isOneHandZoomModeRef.current = true;
         touchStartYRef.current = touch.clientY;
         initialZoomRef.current = currentZoomRef.current;
         
-        // Block browser/map defaults
+        // CRITICAL: Cancel the pending single click from the first tap
+        if (clickTimeoutRef.current) {
+          clearTimeout(clickTimeoutRef.current);
+          clickTimeoutRef.current = null;
+        }
+        
         if (e.cancelable) e.preventDefault();
       }
       
@@ -162,8 +167,13 @@ const App = () => {
     const handleTouchEnd = (e) => {
       if (isOneHandZoomModeRef.current) {
         if (e.cancelable) e.preventDefault();
+        // Delay resetting the zoom mode slightly to prevent the immediate click event
+        setTimeout(() => {
+          isOneHandZoomModeRef.current = false;
+        }, 50);
+      } else {
+        isOneHandZoomModeRef.current = false;
       }
-      isOneHandZoomModeRef.current = false;
     };
 
     const handleWheel = (e) => {
@@ -238,9 +248,23 @@ const App = () => {
   };
 
   const handleCountryClick = (geo, centroid) => {
-    const name = mapGeoName(geo.properties.name);
-    if (foodData[name]) { setSelectedCountry(name); flyToCountry(name, centroid, false); }
-    else setSelectedCountry(null);
+    // If we're already in one-hand zoom mode, do nothing
+    if (isOneHandZoomModeRef.current) return;
+
+    // Clear any existing pending clicks
+    if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
+
+    // Delay the click execution
+    clickTimeoutRef.current = setTimeout(() => {
+      const name = mapGeoName(geo.properties.name);
+      if (foodData[name]) {
+        setSelectedCountry(name);
+        flyToCountry(name, centroid, false);
+      } else {
+        setSelectedCountry(null);
+      }
+      clickTimeoutRef.current = null;
+    }, 100); // Snap 100ms delay
   };
 
   return (
