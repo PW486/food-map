@@ -1,45 +1,28 @@
 # World Food Map 🍴🌍
 
-An interactive world map to explore iconic traditional cuisines from 180+ countries.
+Interactive world map exploring iconic cuisines from 180+ countries.
 
 ## ✨ Features
-
-- **🔍 Smart Search**: Real-time country and cuisine search.
-- **🌗 Dark Mode**: Adaptive theme based on system preference.
-- **🌍 Climate Map**: Dynamic color-coding (Desert, Cold, Temperate).
-- **✈️ Smooth Navigation**: Fluid transitions and intelligent zooming.
-- **📱 Responsive**: Optimized for both desktop and mobile (PWA support).
-- **📸 Live Images**: Dynamic dish visuals from Wikimedia Commons.
+- **🔍 Smart Search**: Real-time country/cuisine lookup.
+- **🌗 Dark Mode**: Adaptive themes with Google Maps aesthetic.
+- **🌍 Climate Map**: Color-coded by terrain (Desert, Cold, Temperate).
+- **📱 Mobile Optimized**: Robust label rendering and one-hand zoom support.
+- **📸 Wiki Integration**: Dynamic dish images from Wikimedia.
 
 ## 🛠️ Tech Stack
-
-- **Core**: React, Vite, Bootstrap 5
+- **Core**: React, Vite, Vitest (Unit Testing)
 - **Maps**: react-simple-maps, d3-geo
-- **Icons**: Lucide React
-- **APIs**: Wikimedia Commons, FlagCDN
+- **Styling**: Bootstrap 5, Lucide React
 
-## 📦 Quick Start
-
-1. **Install**
-   ```bash
-   npm install
-   ```
-2. **Run**
-   ```bash
-   npm run dev
-   ```
-3. **Build**
-   ```bash
-   npm run build
-   ```
-
-> **Deployment**: Automatically deployed to GitHub Pages via GitHub Actions on push to `main`.
+## 📦 Commands
+- `npm install` : Setup dependencies
+- `npm run dev` : Start dev server
+- `npm test` : Run unit tests (Vitest)
+- `npm run build` : Production build
 
 ## 🗺️ Customization
-
-- **Add Cuisine**: Add `.js` files in `src/data/countries/`.
-- **Map Styles**: Edit `MAP_COLORS` in `src/utils/countryMapping.js`.
-- **Zoom Logic**: Adjust `LABEL_MIN_ZOOM` in `src/utils/countryMapping.js`.
+- **Cuisine Data**: `src/data/countries/*.js`
+- **Map Config**: `src/utils/countryMapping.js` (Colors, Zoom, Centroids)
 
 ---
-Developed for food lovers and travelers. 🌍🥘
+*Automated CI/CD deployment via GitHub Actions.*
