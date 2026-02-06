@@ -156,14 +156,14 @@ const MapLayer = ({
                             const isMultiLine = words.length > 1 && (name.length > 15 || words.length > 2);
                             
                             if (!isMultiLine) {
-                              return <tspan dy="0.33em">{name}</tspan>;
+                              return <tspan x="0" dy={labelFontSize * 0.35}>{name}</tspan>;
                             }
 
                             return words.map((word, i) => (
                               <tspan 
                                 key={i} 
                                 x="0" 
-                                dy={i === 0 ? `${0.33 - (words.length - 1) * 0.55}em` : "1.1em"}
+                                dy={i === 0 ? (0.35 - (words.length - 1) * 0.5) * labelFontSize : 1.0 * labelFontSize}
                               >
                                 {word}
                               </tspan>
