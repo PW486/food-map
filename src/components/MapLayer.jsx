@@ -58,9 +58,10 @@ const MapLayer = ({
 
   const scale = useMemo(() => (width < 600 ? width / 6.5 : 150), [width]);
 
-  // Dynamic font size: visual size grows slightly with zoom (power 0.8)
+  // Dynamic font size: visual size shrinks slightly with zoom (power 1.1)
+  // This ensures labels don't overpower the map when zoomed in deep.
   const baseFontSize = isMobile ? 8.0 : 10.0;
-  const labelFontSize = baseFontSize / Math.pow(position.zoom, 0.8);
+  const labelFontSize = baseFontSize / Math.pow(position.zoom, 1.1);
 
   const labelStyle = {
     fontFamily: "system-ui, -apple-system, sans-serif",
