@@ -4,11 +4,13 @@ import logo from "../assets/logo.png";
 const Header = ({ darkMode }) => {
   return (
     <header 
-      className="position-absolute start-0 m-3 ps-3 pe-4 py-3 shadow rounded-4 d-flex align-items-center gap-3" 
+      className="position-absolute start-0 d-flex align-items-center gap-3 shadow rounded-4" 
       style={{ 
         zIndex: 10, 
         maxWidth: "450px",
-        top: "env(safe-area-inset-top, 0px)",
+        top: "calc(1rem + env(safe-area-inset-top, 0px))",
+        left: "calc(1rem + env(safe-area-inset-left, 0px))",
+        padding: "0.75rem 1rem 0.75rem 0.75rem",
         backgroundColor: darkMode ? "#333333" : "white",
         transition: "all 0.3s ease"
       }}
