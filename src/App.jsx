@@ -275,12 +275,11 @@ const App = () => {
       {/* Left Bottom: Search & Random */}
       <div 
         ref={searchRef} 
-        className="position-absolute bottom-0 start-0 d-flex flex-column gap-2" 
+        className="position-absolute d-flex flex-column gap-2" 
         style={{ 
           zIndex: 20,
-          margin: "1.5rem",
-          marginLeft: "calc(1.5rem + env(safe-area-inset-left))",
-          marginBottom: "calc(1.5rem + env(safe-area-inset-bottom))"
+          left: "calc(1.5rem + env(safe-area-inset-left, 0px))",
+          bottom: "calc(1.5rem + env(safe-area-inset-bottom, 0px))"
         }}
       >
         <button onClick={() => handleCountrySelect(Object.keys(foodData)[Math.floor(Math.random() * Object.keys(foodData).length)], true)} className="btn shadow-sm d-flex align-items-center justify-content-center" style={{ width: "50px", height: "50px", borderRadius: "15px", backgroundColor: darkMode ? "#333333" : "white", color: darkMode ? "#f0f0f0" : "#333333", border: "none", fontSize: "1.5rem" }}>🎲</button>
@@ -304,13 +303,12 @@ const App = () => {
 
       {/* Right Bottom: Theme & Zoom */}
       <div 
-        className="position-absolute bottom-0 end-0 d-flex flex-column gap-2 sync-transition" 
+        className="position-absolute d-flex flex-column gap-2 sync-transition" 
         style={{ 
           zIndex: 10, 
-          margin: "1.5rem",
-          marginRight: "calc(1.5rem + env(safe-area-inset-right))",
-          marginBottom: "calc(1.5rem + env(safe-area-inset-bottom))",
-          transform: (!isMobile && selectedCountry) ? "translateX(calc(-400px - env(safe-area-inset-right)))" : "translateX(0)" 
+          right: "calc(1.5rem + env(safe-area-inset-right, 0px))",
+          bottom: "calc(1.5rem + env(safe-area-inset-bottom, 0px))",
+          transform: (!isMobile && selectedCountry) ? "translateX(calc(-400px - env(safe-area-inset-right, 0px)))" : "translateX(0)" 
         }}
       >
         <button onClick={() => setDarkMode(!darkMode)} className="btn shadow-sm d-flex align-items-center justify-content-center" style={{ width: "50px", height: "50px", borderRadius: "15px", backgroundColor: darkMode ? "#333333" : "white", color: darkMode ? "#FFD93D" : "#3b82f6", border: "none" }}>{darkMode ? <Sun size={24} /> : <Moon size={24} />}</button>
