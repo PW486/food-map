@@ -43,8 +43,8 @@ const App = () => {
   const isMobile = width < 600;
   const isLandscape = width > height && height < 500;
   
-  const sidebarWidth = isMobile ? width : (isLandscape ? 450 : 400);
-  const baseMargin = isLandscape ? "1rem" : "1.5rem";
+  const sidebarWidth = isMobile ? width : 400;
+  const baseMargin = "1.5rem";
 
   const [position, setPosition] = useState({ 
     coordinates: isMobile ? [15, 35] : [15, 15], 
