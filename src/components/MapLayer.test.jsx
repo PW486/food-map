@@ -26,8 +26,8 @@ vi.mock("../utils/countryMapping", () => ({
 
 // Mock react-simple-maps
 vi.mock("react-simple-maps", () => ({
-  ComposableMap: ({ children }) => <div>{children}</div>,
-  ZoomableGroup: ({ children }) => <div>{children}</div>,
+  ComposableMap: ({ children }) => <svg>{children}</svg>,
+  ZoomableGroup: ({ children }) => <g>{children}</g>,
   Geographies: ({ children }) => {
     const geographies = [
       { rsmKey: "geo-1", properties: { name: "Test Country" } },
@@ -35,8 +35,8 @@ vi.mock("react-simple-maps", () => ({
     ];
     return children({ geographies });
   },
-  Geography: () => <div data-testid="geography" />,
-  Marker: ({ children }) => <div data-testid="marker">{children}</div>
+  Geography: () => <path data-testid="geography" />,
+  Marker: ({ children }) => <g data-testid="marker">{children}</g>
 }));
 
 // Mock d3-geo
